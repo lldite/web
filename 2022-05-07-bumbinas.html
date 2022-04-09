@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+
+    <script>
+        let a = document.querySelector("div:nth-child(1)")
+        let b = document.querySelector("div:nth-child(2)")
+        
+        console.log("a", a, "b", b)
+        
+        a.addEventListener('click', function (event) {
+            console.log(event.clientX)
+            b.innerHTML = b.innerHTML + "<div></div>"
+        })
+
+        b.addEventListener('click', function(event) {
+            a.innerHTML = a.innerHTML + "<div></div>"
+        })
+
+        console.log('a', [1,2,3])
+        console.log('a', [
+            1, 2, 3
+        ])
+
+        // 1. paskaties click event listeneri un saproti kodu
+        // 2. uztaisi mazajiem diviem papildus stilus lai var vizuaali atskirt
+        // (3.) pieliec mazajiem diviem klasi, bet var nelikt
+    </script>
+
+    <style>
+        body {display: flex}
+        body > div {border: 1px solid black; margin: 1em; padding: 1em; flex: 1; line-height: 0}
+        body > div:nth-child(1) {background:sienna}
+        body > div:nth-child(2) {background: chocolate}
+        body > div > div { display: inline-block; width: 2em; height: 2em; margin: 1px; padding: 1em; border-radius: 24px}
+        body > div:nth-child(1) > div {background: coral}
+        body > div:nth-child(2) > div {background: yellow}
+    </style>
+</body>
+</html>

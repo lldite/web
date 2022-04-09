@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calculate() {
+            let vertiba = document.getElementById("operacija").value;
+
+            if (vertiba == "") {
+                console.log("vertiba ir tuksa vai teksta nav");
+            } else {
+                //console.log("vertiba ir " + vertiba);
+                if (vertiba.indexOf("+") > -1) {
+                    console.log(2 + 3);
+                }
+                else if (vertiba.indexOf("*") > -1) {
+                    let vertiba2 = document.getElementById("text").value;
+                    console.log(2 + vertiba2);
+                }
+                else {
+                    console.log("A");
+
+                }
+            }
+            // console log var aizvietot ar alert
+        }
+    </script>
+</head>
+
+<body>
+    <input id="operacija">
+    <!--ja + tad drukā ciparu; ja ir * tad drukā ciparu un tekstu no "text" inputa; ja nav * un + tad drukā A-->
+    <input id="text">
+    <button onclick="calculate()">dabut rezultatu ar 2 un 3</button>
+</body>
+
+</html>

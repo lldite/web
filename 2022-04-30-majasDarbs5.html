@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="vards">
+    <input id="uzvards">
+    <input id="telefons">
+
+    <button onclick="displayInfo()">Parādīt</button>
+
+    <table>
+        <tr>
+          <th>Vārds</th>
+          <th>Uzvārds</th>
+          <th>Telefons</th>
+        </tr>
+        <tr>
+          <td id="vardsOut">&nbsp;</td> <!--non breaking space: atstarpe, kura netiek ignorēta-->
+          <td id="uzvardsOut"></td>
+          <td id="telefonsOut"></td>
+        </tr>
+    </table>
+
+    <script>
+        function validateInput(element) {
+            if (element.value.length >= 1) {
+                element.style.border = "2px solid green"
+            } else {
+                element.style.border = "2px solid red"
+            }
+        }
+
+        function displayInfo() {
+            let vards= document.querySelector("#vards")
+            let uzvards= document.querySelector("#uzvards")
+            let telefons= document.querySelector("#telefons")
+            
+            let vardsOut= document.querySelector("#vardsOut")
+            let uzvardsOut= document.querySelector("#uzvardsOut")
+            let telefonsOut= document.querySelector("#telefonsOut")
+
+            vardsOut.innerHTML = vards.value
+            uzvardsOut.innerHTML= uzvards.value
+            telefonsOut.innerHTML= telefons.value
+
+            validateInput(vards)
+            validateInput(uzvards)
+            validateInput(telefons)
+
+            /*
+            if (vards.value.length >= 1) {
+                vards.style.border = "2px solid green"
+            } else {
+                vards.style.border = "2px solid red"
+            }
+                  
+            if (uzvards.value.length >= 1) {
+                uzvards.style.border = "2px solid green"
+            } else {
+                uzvards.style.border = "2px solid red"
+            }
+
+            if (telefons.value.length >= 1) {
+                telefons.style.border = "2px solid green"
+            } else {
+                telefons.style.border = "2px solid red"
+            } 
+            */
+        }
+    </script>
+
+    <style> 
+        td, th { border: 1px solid black; padding: 3px }
+    </style>    
+</body>
+</html>
+<!--
+    izveidot lapu ar 3 <input> (vārds, uzvārds, tālrunis) un poga, uz kuras noklikšķinot, 
+    labajā pusē tabulas veidā parādās informācija no ievades.
+    (pēc izvēles - tiem, kas vēlas) noklikšķinot, pārbaudiet, vai lietotājs ir kaut ko ievadījis, 
+    un, ja ir, ietonējiet input kontūru zaļā krāsā. ja neievada - tad sarkanā krāsā.
+-->

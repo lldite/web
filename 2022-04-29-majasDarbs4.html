@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="teksts">
+    <button onclick="drukatTekstu()">nodrukat 20 reizes</button>
+    <p id="rindkopa"></p>
+
+    <script> 
+        function drukatTekstu() {         
+            let teksts = document.querySelector("#teksts").value
+            for (let i=0; i<20; i++) {
+                console.log(teksts)
+                document.querySelector("#rindkopa").innerHTML += "<div>" + teksts + "</div>"
+                //document.querySelector("#rindkopa").textContent += teksts
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
+
+https://stackoverflow.com/a/41764179     (2 variants ar "+=")-->
+
+<!--izveidojiet rindkopu <p>. nepieciešams saņemt tekstu no vienas <input>. 
+    izmantojot ciklu "for", izdrukājiet iegūto tekstu rindkopā 20 reizes. 
+    paredzamais rezultāts ir:  uzrakstīt "1" Iekš <input> un nospiest pogu, lai rindkopā iegūtu 20 vieniniekus. -->

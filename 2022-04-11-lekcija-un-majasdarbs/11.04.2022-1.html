@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // JS sākums
+        function calculate() {
+            let vertiba= document.getElementById("operacija").value;
+            if(vertiba==null || vertiba == "") {
+                console.log("vertiba ir tuksa vai nav teksta");
+            } 
+            else{
+                console.log("vertiba ir" + vertiba);
+                if(vertiba.indexOf("+")>-1){ // ja atrod, tad pozicijas numur sakot ar 0; ja neatrod- atgriež -1
+                    console.log(2+3);
+                }
+            }
+        }
+
+        var irKRedits = true;
+        var vecums = 10;
+        var darbs = "123123"  
+        if (irKredits == false && (vecums > 18 || darbs!= "miljonars")) {  // && un || vai != nav vienāds ar
+            console.log("varam dot kreditu")
+        }   
+        else {
+            console.log("atvainojiet")
+        }  
+        
+
+        if(irKRedits){
+            // irKRedits => true
+        } 
+        let aaa = irKredits == false; // aa ir vienada ar "vai irKRedits ir vienada ar true"
+        // true && true = true
+        // false && true = false
+        // fase && false = false
+        
+        // == ir vienads ar
+        // === ir vienads gan vertiba gan datu tips
+    
+        // JS beigas
+    </script>
+</head>
+<body>
+    <input id="operacija">
+    <button onclick="calculate()">dabut rezultatu ar 2 un 3</button>
+</body>
+</html>

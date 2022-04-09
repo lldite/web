@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        <div id="name">
+            <input placeholder="Name">
+        </div>
+        <div id="phoneNumber">
+            <input placeholder="Phone number">
+        </div>
+        <div id="options">
+            <div>
+                <input type="checkbox">
+                Remember me
+            </div>
+            <div>
+                Forgot?
+            </div>
+        </div>
+        <button onclick="checkPhoneNumber()">Click</button>
+    </div>
+
+    <script>
+        function checkPhoneNumber() {
+            let phoneNumber = document.querySelector("#phoneNumber input").value
+            // let allNumbers = phoneNumber.split('').every(x => "0123456789".includes(x))
+
+            console.log("length=8", phoneNumber.length == 8)
+            console.log("first number=2", phoneNumber[0] == '2')
+            console.log("are they all numbers?", phoneNumber.split('').every(x => "0123456789".includes(x)))
+
+            if (phoneNumber.length == 8 && phoneNumber[0] == '2' && phoneNumber.split('').every(x => "0123456789".includes(x))) {
+                alert("Ok")
+            }
+
+            //if (phoneNumber.match(/2[0-9]{7}/) {
+            //    alert("Ok")
+            //}
+        }
+    </script>
+
+    <style>
+        #content { width: 250px; margin: 5em auto 0 auto; }
+        #name input, #phoneNumber input { width: 100%; margin: 0 0 1em 0; }
+        #options { display: flex; }
+        #options div { width: 50%; }
+        #options div:nth-child(2) { text-align: right; }
+        #options input { margin: 0 5px 5px 0; }
+    </style>
+</body>
+</html>
+<!-- zveidojiet reģistrācijas logu:
+logam jāatrodas ekrāna centrā un ir divas ievades vārdam un tālruņa numuram
+pievienojiet pogu. 
+nospiežot pogu, ir jāpārbauda numuru un, ja tas atbilst maskai 2ххххххх, parādiet alert() ar vārdu "Ok"
+-->
+
+<!--
+[5,6,7].every(x => x > 4)
+true
+[5,6,7].every(x => x > 6)
+false
+"0123456789".includes("f")
+false
+"0123456789".includes("3")
+true
+"0123456789".includes("p")
+false
+"2345f789".split('')
+(8) ['2', '3', '4', '5', 'f', '7', '8', '9']
+
+"23456789".slice(1, 8).split('').every(c => "0123456789".includes(c))
+true
+"2345f789".split('').every(c => "0123456789".includes(c))
+false
+-->

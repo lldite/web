@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="teksts">
+    <button onclick="klikskis()">poga</button>
+    <button onclick="alert('tada')">taisi alertu</button>
+    <script>
+        function klikskis() {
+            let saturs = document.getElementById("teksts").value
+            console.log(saturs.includes("1"), saturs.includes("2"), saturs.includes("3"))
+            if (saturs.includes("1") || saturs.includes("2") || saturs.includes("3")) {
+                alert("atradu")
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!--
+    izveidot dokumentu ar vienu <input> teksta ievadīšanai un pogu.
+    Noklikšķinot uz pogas, ir jāpārbauda, ​​vai ievadītajā tekstā ir cipari 1,2,3.
+    Ja ir vismaz viens cipars 1 vai 2 vai 3, tad ir jāparāda pazinojuma logs. "alert()"
+-->

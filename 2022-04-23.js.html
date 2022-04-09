@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="buttons">
+        <span class="a"></span>
+        <span class="b"></span>
+    </div>
+    <span style="font-size: 50px">❤️</span>
+    <div id="content">
+        <!-- <span class="a"></span> -->
+    </div>
+    <style>
+        #buttons *, #content * { display: inline-block; margin: 2px; padding: 1em; }
+        #buttons .a { background:burlywood; }
+        #buttons .b { background:cadetblue; }
+
+        #buttons, #content { border: 1px solid black; padding: 1em; margin: 1em; }
+        #content .a { background: rgb(206, 59, 59); }
+        #content .b { background: rgb(128, 59, 206); }
+    </style>
+
+    <script>
+        const content = document.querySelector('#content')
+
+        // content.innerHTML = "tadā"
+
+        // document.querySelector('#buttons a').addEventListener('click', func)
+        // document.querySelector('#buttons b').addEventListener('click', func)
+
+        document.querySelectorAll('#buttons span').forEach(function (button) {
+            button.addEventListener('click', function (event) {
+                const klass = event.target.className // klass = "a" or "b"
+                console.log("event = ", event)
+                console.log("target className = ", klass)
+                // content.innerHTML = content.innerHTML + `<span class="klass"></span>`
+                // content.innerHTML = content.innerHTML + `<span class=` + klass + `></span>`
+                content.innerHTML = klass
+            })
+        })
+
+        /*
+        [1,5,7].map(function (x) { return x + 1 })
+        (3) [2, 6, 8]
+        [1,5,7].forEach(function (x) { console.log(x + 1) })
+        VM4224:1 2
+        VM4224:1 6
+        VM4224:1 8
+        undefined
+        [1,5,7].map(x => x + 1)
+        (3) [2, 6, 8]
+        [1,5,7].forEach(x => console.log(x + 1))
+        VM4312:1 2
+        VM4312:1 6
+        VM4312:1 8
+        undefined
+        */
+
+        /*
+        ['pirmais', 'otrais']
+        (2) ['pirmais', 'otrais']
+        ['pirmais', 'otrais'].forEach(function (s) {})
+        undefined
+        ['pirmais', 'otrais'].forEach(function (s) { console.log(`123${s}456`) })
+        VM4640:1 123pirmais456
+        VM4640:1 123otrais456
+        undefined
+        `yzx`
+        'yzx'
+        `y${1+2*3}zx`
+        'y7zx'
+        `qwefqwef$qwefqew`
+        'qwefqwef$qwefqew'
+        `qwefqwe {1+1} f$qwefqew`
+        'qwefqwe {1+1} f$qwefqew'
+        `qwefqwe ${1+1} f$qwefqew`
+        'qwefqwe 2 f$qwefqew'
+        `a{1+1}a`
+        'a{1+1}a'
+        `a{1+1}a`.length
+        7
+        `a${1+1}a`.length
+        3
+        ['pirmais', 'otrais'].forEach(function (s) { console.log(`123${s}456`) })
+        VM4826:1 123pirmais456
+        VM4826:1 123otrais456
+        undefined
+        ['pirmais', 'otrais'].forEach(function (s) { console.log(`"${s}"`) })
+        VM4841:1 "pirmais"
+        VM4841:1 "otrais"
+        undefined
+        ['pirmais', 'otrais'].forEach(function (s) { console.log(`"s = ${s}"`) })
+        VM4849:1 "s = pirmais"
+        VM4849:1 "s = otrais"
+        undefined
+        ['pirmais', 'otrais'].forEach(function (s) { console.log(`s = "${s}"`) })
+        VM4857:1 s = "pirmais"
+        VM4857:1 s = "otrais"
+        undefined
+        */
+    </script>
+</body>
+</html>

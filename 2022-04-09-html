@@ -1,0 +1,21 @@
+<p id="para">
+    <b>tadā</b>
+    <b>tadā</b>
+    <b>tadā</b>
+    <b>tadā</b>
+</p>
+
+<p>
+    <i>hahā</i>
+</p>
+
+<script>
+  const p = document.getElementById("para")
+  console.log(p)
+
+  const clickfun = function() {
+    console.log("clicked")
+    console.log(arguments)
+  }
+  p.addEventListener("click", clickfun)
+</script>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javaskripts!</title>
+    <script>
+        function klikskis() { 
+            alert(9)
+            /*let element = document.getElementById("lauks")
+            let skaitlis = parseInt(element.value) // skaitlis, kas būs inputā
+            //let parent = element.parentElement
+            //parent.style.height = (skaitlis + 100) + "px"
+            console.log("šeit būs tas atrastais:", element, "vērtība:", skaitlis * 2)
+
+            if (skaitlis > 50) {
+                console.log('o, kāds liels skaitlis:', skaitlis)
+            } else {
+                console.log('mazs skaitlis:', skaitlis)      
+            }*/
+        }
+    </script>
+    <style>
+        #purple { padding: 10px; background: purple; }
+    </style>
+</head>
+<body>
+    <div id="purple">
+        <input id="lauks">
+        <button onclick="klikskis()">klikšķini mani</button>    
+    </div>
+</body>
+</html>

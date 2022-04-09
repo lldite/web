@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="styled">
+        <div>
+            <p class="a">text</p>
+            <p class="b">text</p>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+            <span class="a">text</span>
+            <span class="b">text</span>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="unstyled">
+        <div></div>
+        <div id="columns">
+            <div>hahahahah</div>
+            <div></div>
+            <div>Real interactivity on a website requires event handlers. These are code structures that listen for activity in the browse</div>
+            <div></div>
+            <div></div>
+        </div>
+        <div></div>
+        <div></div>
+    </div>
+    <style>
+        #styled, #unstyled { margin: 1em; padding: 1em; border: 5px solid rgb(13, 89, 114); background: #888; }
+        #unstyled { padding: 1em; }
+
+        #styled div { margin: 1em; padding: 1em; border: 5px solid black; background: #eee; }
+        #unstyled > div { padding: 48px; margin: 15px; border: 5px solid blueviolet; background: rgb(63, 48, 80) }
+
+        #columns { display: flex; justify-content: space-around; color: seashell; }
+        #columns * { border: 5px solid black; padding: 1em; }
+        #columns *:nth-child(2) { padding: 2em; }
+        #columns *:nth-child(3) { width: 5em; }
+        #columns *:nth-child(4) { padding: 4em; }
+
+        #styled div * { font-weight: bold; }
+        #styled div .a { color: rgb(142, 0, 224); }
+        #styled div .b { color: rgb(247, 0, 255); }
+    </style>
+</body>
+</html>
+<!--
+    https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+-->

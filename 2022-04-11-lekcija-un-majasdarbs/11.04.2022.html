@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //JS sakums
+        function sum(a,b){ //function ir atslēgvārds (visi zilie). sum ir funkcijas nosaukums; nosaukumā nav atstarpes. Iekavās ir parametri, a un b ir mainīgie
+            let c = a + b; // {} ir instrukcijas. c ir mainīgā nosaukums. Atstarpēm nav nozīmes; JS visas atstarpes noņem tāpatās. 
+            console.log(c); // console.log rāda rezultātu pārlūkprogrammā 
+            
+        } // šī ir tikai funkcijas deklarācija, tikai instrukcija
+        
+        sum(1,69); // funkcijas izsaukums
+        
+// c = a + b
+// c = a - b
+// c = a * b
+// c = a / b
+
+        function atnjemt(d,e){
+            let f = d - e;
+            console.log(f);
+        }
+        atnjemt(70,1)
+
+        function dabutDataNoAbc(){ // tukšas iekavas, lai funkcija neņem parametrus; funkcija negaida no mums kā no lietotāja neko
+            let elem = document.getElementById("abc"); // elem ir mainīgā nosaukums. Document ir ogjekts kurā iekšā ir viss HTML. Document ir HTML bet koda veidā. GetElementById funkcija kas dabū tagu bet JS veidā
+            console.log(elem.value);
+        }
+        
+        //JS beigas
+    </script>
+</head>
+<body>
+    <input id="abc"> <!-- input ir tas laukums lietotājam, kur kaut ko ierakstīt-->
+    <button onclick="dabutDataNoAbc()">Uzzinat ka dabut info no ievada</button>
+
+    <button onclick="sum(1,69)">sum</button> <!--izsauc funkciju, kad nospiež pogu-->
+    <button onclick="atnjemt(70,1)">atnjemt</button>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        function sum(){
+            let a = document.getElementById("ievads1").valueAsNumber;// cipars
+            let b = $("#ievads2").val();// text
+            let b_Ka_Cipars=Number(b);// vai cipars vai NaN
+            if(isNaN(b_Ka_Cipars) == false){
+                let c = a+ b_Ka_Cipars;
+                $("#rezult").text(c);
+            }
+            else{
+                alert("otrais ievads nav skaitlis");
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="ievads1" type="number">
+    <input id="ievads2" type="text">
+    <p id="rezult"></p>
+    <button onclick="sum()">OK</button>
+</body>
+</html>
+<!--JQUERY bibbl: <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<!--https://api.jquery.com/toggle/-->

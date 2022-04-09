@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="krasa">
+    <button onclick="aprekiniDarbibu()">aprēķini</button>
+    <input id="darbiba">
+    
+    <script>
+        function aprekiniDarbibu() {
+            //let krasa = document.querySelector("#krasa").value
+            
+            if (document.querySelector("#krasa").value == "dzeltens") {
+                document.querySelector("#darbiba").value = "bremzēt"
+            } else if (document.querySelector("#krasa").value == "sarkans") {
+                document.querySelector("#darbiba").value = "stāvēt"
+            } else if (document.querySelector("#krasa").value == "zaļš") {
+                document.querySelector("#darbiba").value = "braukt"
+            } else {
+                document.querySelector("#darbiba").value = "nobrauc visus!"
+            }
+
+           // console.log(["value ir", document.querySelector("#krasa").value])
+           // document.querySelector("#darbiba").value = "abcd"
+        }
+    </script>
+</body>
+</html>

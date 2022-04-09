@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Document</title>
+<script>
+// i++ == i = i + 1
+// i+=10 == i = i + 10
+// i--
+// i*=10 i = i * 10
+
+function kadIrClick() {
+    const ievadaVertiba = document.getElementById("ievads1").value;
+    let uzvediba = "";
+    switch (ievadaVertiba) {
+        case "sarkans":
+            uzvediba = "apstaties";
+            break;
+
+        case "dzeltens":
+            uzvediba = "sakam bremzet";
+            break;
+        
+        case "zals":
+            uzvediba = "brauksim";
+            break;
+        
+        default:
+            uzvediba = "krasa nav saprotama";
+    }
+    document.getElementById("rezult1").value = uzvediba;
+}
+</script>
+</head>
+<body>
+4 nodarbiba
+<div>krasa:</div>
+<input type="text" id="ievads1">
+<div>uzvediba:</div>
+<input type="text" id="rezult1">
+<button onclick="kadIrClick()">Ok</button>
+</body>
+</html>
+<!--https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
+
+https://stackoverflow.com/a/41764179 (2 variants ar "+=")
+
+izveidojiet rindkopu <p>. nepieciešams saņemt tekstu no vienas <input>. izmantojot ciklu "for", izdrukājiet iegūto tekstu rindkopā 20 reizes. paredzamais rezultāts ir: uzrakstīt "1" Iekš <input> un nospiest pogu, lai rindkopā iegūtu 20 vieniniekus. augšupielādējiet ludzu html failu.-->

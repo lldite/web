@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="parole">
+    <button onclick="validetParoli()">vai der?</button>
+    <div id="ievade"></div>
+
+    <script> 
+        function validetParoli() {         
+        let parole = document.querySelector("#parole").value
+            if (parole.length < 5 || parole.length > 10) {
+            document.querySelector("#ievade").textContent += "nepareiza ievade";
+        } else {document.querySelector("#ievade").textContent += "parole pienemta"}
+    }  
+    
+    
+    </script>
+</body>
+</html>
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function parbaudiGarumu() {
+            let ievadaVertiba = $("#ievads1").val();
+            let rezult = "";
+            if (ievadaVertiba.length < 5 || ievadaVertiba.length > 10) {
+                rezult = "nepareiza ievade";
+            } else {
+                rezult = "OK";
+            }
+            $("#div1").text(rezult);
+        }
+    </script>
+</head>
+
+<body>
+    <input id="ievads1">
+    <div id="div1"></div>
+    <button onclick="parbaudiGarumu()">OK</button>
+</body>
+
+</html>-->
