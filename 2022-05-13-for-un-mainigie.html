@@ -18,13 +18,14 @@
             a = a + 1
             // a = 12, b = 19
 
-            if (a == 11) {
+            // if (a != 11) { // original
+            if (a == 11) {                
                 a = b * 2
                 // console.log('izpildaas', a, a == 38)
             } else {
                 // a = 12
                 for (let i = 0; i < 500; i++) {
-                    a = a - 10
+                    a = a - 10 // katru reizi izmaina 'a'
                 }
                 console.log('a = ', a, a == -4988)
             }
