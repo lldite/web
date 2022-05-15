@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+
+    </div>
+    <p>123</p>
+
+    <script>
+        const block = document.querySelector("#main")
+        let x = 200
+        let y = 200
+        
+        //block.style['top'] = '500px'
+
+        document.addEventListener('keyup', function (event) {
+            if (event.key == "ArrowUp") {
+                y = y - 35
+            }
+            if (event.key == "ArrowDown") {
+                y = y + 35
+            }
+            if (event.key == "ArrowLeft") {
+                x = x - 35
+            }
+            if (event.key == "ArrowRight") {
+                x = x + 35
+            }
+            block.style['top'] = y + 'px'
+            block.style['left'] = x + 'px'
+
+            console.log("x", x, "y", y)
+        })
+    </script>
+
+    <style>
+        #main {width: 5em; height: 5em; background: peachpuff; position: absolute; top: 200px; left: 200px}
+    </style>
+</body>
+</html>
