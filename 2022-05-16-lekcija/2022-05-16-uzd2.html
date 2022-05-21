@@ -18,13 +18,17 @@
         let saglabat = document.querySelector("#saglabat")
         let outputs = document.querySelector("#outputs")
 
-        let saraksts = [["Raitis", 28], ["Lelde", 32]]
+        let saraksts = [
+            {"vards": "Raitis", "vecums": 28},
+            {"vards": "Lelde", "vecums": 32}
+        ]
         
         saglabat.addEventListener("click", function (event) {
-            saraksts.push([vards.value, parseInt(vecums.value)])
+            //saraksts.push([vards.value, parseInt(vecums.value)])
+            saraksts.push({"vards": vards.value, "vecums": parseInt(vecums.value)})
             
-            let vardi = saraksts.map(x => x[0])
-            let vecakais = Math.max(...(saraksts.map(x => x[1])))
+            let vardi = saraksts.map(o => o.vards)
+            let vecakais = Math.max(...(saraksts.map(o => o.vecums)))
 
             outputs.innerHTML = `vārdi: ${vardi}, vecākais: ${vecakais}`
         })
