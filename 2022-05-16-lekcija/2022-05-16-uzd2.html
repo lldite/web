@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="vards">
+    <input id="vecums">
+    <button id="saglabat">Saglabāt</button>
+    <div id="outputs"></div>
+
+    <script>
+        let vards = document.querySelector("#vards")
+        let vecums = document.querySelector("#vecums")
+        let saglabat = document.querySelector("#saglabat")
+        let outputs = document.querySelector("#outputs")
+
+        let saraksts = [["Raitis", 28], ["Lelde", 32]]
+        
+        saglabat.addEventListener("click", function (event) {
+            saraksts.push([vards.value, parseInt(vecums.value)])
+            
+            let vardi = saraksts.map(x => x[0])
+            let vecakais = Math.max(...(saraksts.map(x => x[1])))
+
+            outputs.innerHTML = `vārdi: ${vardi}, vecākais: ${vecakais}`
+        })
+    </script>
+</body>
+</html>
+<!--
+    izveidojiet formu ar 2 ievadiem (vārds un vecums) un vienu pogu "saglabāt".
+    pēc pogas nospiešanas informācija jāsaglabā masīvā.
+    zem veidlapas parādiet visus saglabātos vārdus un vienu ciparu – lielāko vecumu
+--> 
