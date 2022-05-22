@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+    </div>
+    <style>
+        body { background: #eee; }
+        #main {margin: 40px auto; height: 40em; width: 40em; /*font-size: 0*/;}
+        .row {display:flex; /*width: 2em; height: 2em; margin: 1px; padding: 1em; background:peru*/}
+        .column {width: 5em; height: 5em; background: url(cat.jpg); background-size: 100%; }
+        .row:nth-child(even) .column:nth-child(even) { background: black; }
+        .row:nth-child(even) .column:nth-child(odd) { background: white; }
+        .row:nth-child(odd) .column:nth-child(even) { background: white; }
+        .row:nth-child(odd) .column:nth-child(odd) { background: black; }
+    </style>
+</body>
+</html> <!-- 1. uztaisi, ka ir divu čupa 8x8 kā šaha lauciņi, tikai krāsas pagaidām nē
+    2. uztaisi div id="wrapper" un uzliec tam margin: 50px auto (centrētu un 50px no augšējās malas) un noteiktu platumu/augstumu (8*8*kaut kāds lauciņa izmērs X — izvēlies pati)
+    3. uztaisi tajā 8 row elementus un katrā row elementā ieliec 8 kolonas (un tikai skaties lai nebūtu atstarpes pa vidu — visu saspied blakus vai arī otrs variants ir atstāj atstarpes, bet uzliec #wrapper { font-size: 0; })
+    4. ieliec katram kolonas elementam width/height izmēru X un ieliec backgroundu lai var saprast, kur klucītis sakās/beidzās
+    
+    backgronudam izmanto piemēram šo https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/220px-Eurasian_wolf_2.jpg-->
