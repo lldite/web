@@ -91,7 +91,15 @@
     </div>
 
     <script>
-        //
+        document.querySelector("#main").addEventListener('click', function (event) {
+            if (event.target.classList.contains('block')) {
+                document.querySelectorAll("#main .block.selected").forEach(function (oldBlock) {
+                    oldBlock.className = 'block clicked'
+                })
+
+                event.target.className = 'block selected'
+            }
+        })
     </script>
 
     <style>
@@ -99,6 +107,8 @@
         #main {margin: 40px auto; height: 40em; width: 40em; /*font-size: 0*/;}
         .row {display:flex; /*width: 2em; height: 2em; margin: 1px; padding: 1em; background:peru*/}
         .block {width: 5em; height: 5em; background: url(cat.jpg); background-size: 100%; }
+        #main .block.clicked { background: rgb(155, 0, 121); }
+        #main .block.selected { background: rgb(255, 122, 226); }
         .row:nth-child(even) .block:nth-child(even) { background: black; }
         .row:nth-child(even) .block:nth-child(odd) { background: white; }
         .row:nth-child(odd) .block:nth-child(even) { background: white; }
