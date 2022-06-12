@@ -1,0 +1,13 @@
+.App {
+  margin: 5em;
+}
+
+.App .row {
+  display: flex;
+}
+
+.Cell {
+  width: 5em;
+  height: 5em;
+  background: #e55;
+}
