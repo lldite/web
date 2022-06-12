@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+    "module": "commonjs"
+    },
+    "exclude": [
+    "node_modules"
+    ]
+    }
+    /* http://home.lu.lv/~janiszu/courses/ecpp/cpp09.classes.pdf

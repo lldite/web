@@ -10,8 +10,21 @@
     <input>
 
     <script>
-        let teksts = document.querySelector("input").valueAsString
+        let teksts = document.querySelector("input").value
         console.log(teksts.length)    
     </script>
 </body>
-</html>
+</html> <!--function saskaitit(){
+    let text = document.getElementById("textId").value;
+    if(text!=null && text!=""){
+    let burt=0;
+    let ciparu=0;
+    for(let i=0;i<text.length;i++){
+    if(/[a-zA-Z]/.test(text[i]))
+    burt++;
+    if(/[0-9]/.test(text[i]))
+    ciparu++;
+    }
+    document.getElementById("rez").innerText="burtinu ir :"+burt+" ciparu ir :"+ciparu;
+    }
+    }-->

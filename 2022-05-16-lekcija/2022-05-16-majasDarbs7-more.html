@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="cena">
+    <button id="saglabat">Saglabāt</button>
+    <div id="outputs"></div>
+
+    <script>
+        let cena = document.querySelector("#cena")
+        let saglabat = document.querySelector("#saglabat")
+        let outputs = document.querySelector("#outputs")
+
+        let saraksts = [
+            // {"cena": 28},
+        ]
+
+        function paradit(cenas, izvade) {
+            let mazaka = ''
+
+            if (cenas.length > 0) {
+                mazaka = `<b>${Math.min(...(cenas.map(o => o.cena)))}</b>`
+            } else {
+                mazaka = '<i>vēl nav aprēķināma</i>'
+            }
+
+            izvade.innerHTML = `Mazākā cena: ${mazaka}`
+        }
+
+        paradit(saraksts, outputs)
+        
+        saglabat.addEventListener("click", function (event) {
+            saraksts.push({"cena": parseInt(cena.value)})
+            paradit(saraksts, outputs)
+        })
+    </script>
+</body>
+</html>
+<!--
+    veidojam programmu preču cenu reģistrēšanai. 
+    Pieņemsim, ka mums ir viens produkts no dažādiem veikaliem. 
+    izveidot vienu ievadi un vienu pogu. 
+    pēc nospiešanas jaunais skaitlis tiek saglabāts masīvā, un ekrānā parādās mazākā cena no visiem saglabātajiem. 
+    pēc katra klikšķa minimālā cena tiek pārrēķināta, ņemot vērā jauno
+-->
