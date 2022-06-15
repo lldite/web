@@ -2,12 +2,4 @@
   margin: 5em;
 }
 
-.App .row {
-  display: flex;
-}
-
-.Cell {
-  width: 5em;
-  height: 5em;
-  background: #e55;
-}
+.App span { display: inline-block; padding: 0 1em; margin: 0 1em; font-size: 30px; background: #eee; }

@@ -1,21 +1,16 @@
 import { useState } from 'react'
 import './App.css'
-import Cell from './Cell'
 
 function App() {
-  const numbers: Array<number> = Array.from(Array(10).keys()) // [0,1,2,3,...]
-
-  let [text, setText] = useState("55")
+  let [x, setX] = useState(0)
+  // x: number
+  // setX: number => void
 
   return (
     <div className="App">
-      {
-        numbers.map(y => 
-          <div className="row" key={y}>
-            {numbers.map(x => <div key={x}><Cell content={text} x={x} y={y} setContent={setText} /></div>)}
-          </div>
-        )
-      }
+      <span className="minus" onClick={click => setX(x - 1)}>-</span>
+      <span className="number">{x}</span>
+      <span className="plus" onClick={click => setX(x + 1)}>+</span>
     </div>
   )
 }
