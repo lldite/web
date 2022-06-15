@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat board</title>
+</head>
+<body>
+    <h1>Cat board</h1>
+    <p id="instructions">Click on any of the cubes with a title to reveal the corresponding kitty. Better mood guaranteed!</p>    
+    <div id="instructions2">Click on any other cube. Depending on your mood:
+    <li id="clicked"> "click" for a sour cat</li>
+    <li id="dblclicked"> "double-click" for a dreamy cat</li>
+    <li id="tripleclicked"> "triple click" for the Husis</li>
+    </div>
+    <p id="fin"> When every cube is occupied with a cat-looking-face refresh the page and make new kitty cube patterns. Happy clicking!</p>
+    <div id="main">
+        <div class="row">
+            <div class="block free"></div>
+            <div class="block free"></div>
+            <div class="block occupied" id="first">The Tiny Asshole</div>
+            <div class="block free"></div>
+            <div class="block free"></div>
+            <div class="block free"></div>
+            
+        </div>
+        <div class="row">
+            <div class="block free"></div>
+            <div class="block occupied" id="second">The Annoyed Kitty</div>
+            <div class="block free"></div>
+            <div class="block occupied" id="third"> The Chillin'Kitty</div>
+            <div class="block free"></div>
+            <div class="block free"></div>
+      
+        </div>
+        <div class="row">
+            <div class="block occupied" id="fourth">The Poopin' Face</div>
+            <div class="block free"></div>
+            <div class="block free"></div>
+            <div class="block free"></div>
+            <div class="block free"></div>
+            <div class="block occupied" id="fifth">The Doughnut Cat</div>
+          
+        </div>
+        <div class="row">
+            <div class="block free"></div>
+            <div class="block free"></div>
+            <div class="block occupied"id="eight">The Sunshine Kitty</div>
+            <div class="block free"></div>
+            <div class="block occupied" id="sixth">The Sassy Poser</div>
+            <div class="block occupied"id="seventh">The Serious Gentelman</div>
+         
+        </div>
+        <div class="row">
+            <div class="block occupied" id="twelfth">The Big Flirt</div>
+            <div class="block free"></div>
+            <div class="block occupied" id="ninth">The Unconscious Kitty</div>
+            <div class="block occupied" id="tenth">The Forever Worrying Cat</div>
+            <div class="block free"></div>
+            <div class="block free"></div>
+           
+        </div>
+        <div class="row">
+            <div class="block occupied" id="eleventh">The Judging Lurker</div>
+            <div class="block occupied" id="thirteenth">The Jawning Kitty</div>
+            <div class="block free"></div>
+            <div class="block free"></div>
+            <div class="block occupied" id="fourteenth">The King And His Chair</div>
+            <div class="block free"></div>
+                   
+    </div>
+    <script>
+alert("Warning! To proceed you have to like cats!")
+
+        document.querySelector("#first").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#second").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#third").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#fourth").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#fifth").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#sixth").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#seventh").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#eight").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+        
+        document.querySelector("#ninth").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#tenth").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#eleventh").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#twelfth").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#thirteenth").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+
+        document.querySelector("#fourteenth").addEventListener('click', function (event) {
+            event.target.classList.add('clicked')
+            event.target.innerHTML = ''
+        })
+    
+        document.querySelectorAll(".block.free").forEach(function (block) {
+            block.addEventListener('click', function (event) {
+                event.target.classList.add('clicked')
+            })
+        })
+        
+        document.querySelectorAll(".block.free").forEach(function (block) {
+            block.addEventListener('dblclick', function (event) {
+                event.target.classList.add('dblclicked')
+            })
+        })
+
+        document.querySelectorAll(".block.free").forEach(function (block) {
+            block.addEventListener('click', function (event) {
+            if (event.detail === 3) {
+                event.target.classList.add('tripleclicked')}
+            })
+        })
+
+        // [1,2,3,4].forEach(number => console.log(number))
+
+    </script>
+
+    <style>
+
+        h1 {font-size: 110px; text-align: center; vertical-align: middle; color: antiquewhite; margin:30px}
+        #instructions {font-size: 30px;  color: rgb(193, 55, 228);}
+        #instructions2 {font-size: 30px;  color: rgba(243, 4, 124, 0.493);}
+        #clicked {font-size: 30px;  color: rgb(194, 248, 239);}
+        #dblclicked {font-size: 30px;  color: rgb(235, 225, 84);}
+        #tripleclicked {font-size: 30px;  color: rgb(233, 228, 250);}
+        #fin {font-size: 30px;  color: rgb(138, 120, 197);}
+
+        body { background: rgb(228, 171, 199); }
+        #main {margin: 40px auto; height: 60em; width: 60em;}
+        .row {display:flex; display:table}
+        .block {width: 10em; height: 10em; display: table-cell; text-align: center; vertical-align: middle; font-size: 30px auto ; color:rgb(75, 44, 105)}
+        
+        .row:nth-child(even) .block:nth-child(even) { background: rgb(150, 191, 238); }
+        .row:nth-child(even) .block:nth-child(odd) { background: rgb(143, 235, 215); }
+        .row:nth-child(odd) .block:nth-child(even) { background: rgb(240, 205, 111); }
+        .row:nth-child(odd) .block:nth-child(odd) { background: rgb(158, 202, 160); }
+        
+        #first.block.occupied.clicked { background: url(raffi.jpg); background-size: 140%;background-position:-51px -74px;}
+        #second.block.occupied.clicked { background: url(annoyed.jpg); background-size: 140%;background-position:-36px -33px;}
+        #third.block.occupied.clicked { background: url(chillin.jpg); background-size: 140%;background-position:191px 184px;}
+        #fourth.block.occupied.clicked { background: url(poopin.jpg); background-size: 140%;background-position: 197px 274px}
+        #fifth.block.occupied.clicked { background: url(round.jpg); background-size: 120%;background-position:179px 204px}
+        #sixth.block.occupied.clicked { background: url(sassyPoser.jpg); background-size: 120%;background-position:171px 198px}
+        #seventh.block.occupied.clicked { background: url(serious.jpg); background-size: 140%;background-position:197px 204px}
+        #eight.block.occupied.clicked { background: url(sunshine.jpg); background-size: 160%;background-position:244px 236px}
+        #ninth.block.occupied.clicked { background: url(unconcious.jpg); background-size: 140%;background-position:173px 247px}
+        #tenth.block.occupied.clicked { background: url(worried.jpg); background-size: 140%;background-position:196px 193px}
+        #eleventh.block.occupied.clicked { background: url(creepyLurker.jpg); background-size: 170%;background-position:251px 248px}
+        #twelfth.block.occupied.clicked { background: url(flirt.jpg); background-size: 140%;background-position:top}
+        #thirteenth.block.occupied.clicked { background: url(jawning.jpg); background-size: 190%;background-position:253px 300px}
+        #fourteenth.block.occupied.clicked { background: url(king.jpg); background-size: 120%;background-position:186px 224px}
+     
+        /* #main prefix added to increase CSS selector specificity */
+        #main .block.free.clicked { background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgnL-6fb5PhgkCkH3odiqgPmhqoWm6HeRjwQ&usqp=CAU); background-size: 135%; background-position:188px 338px}
+        #main .block.free.dblclicked { background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZDZ2lTXq_hKowK_nXmT3usuqeId0dJueFsg&usqp=CAU); background-size: 170%; background-position:219px 343px}
+        #main .block.free.tripleclicked { background: url(https://nutrisourcepetfoods.com/wp-content/uploads/2021/12/cat-yowl.-.jpg); background-size: 160%; background-position:193px 330px}
+    </style>
+    
+</body>
+</html>
