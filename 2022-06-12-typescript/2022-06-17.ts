@@ -1,23 +1,23 @@
-console.log("lācīc")
+// console.log("lācīc")
 const number = 10
 const numbers = Array.from(Array(number).keys())
-console.log(numbers.map(x => ({zivs: x, govs: (5 - x)})))
-console.log(numbers.map(x => {
-    let y = 10 - x * 2
-    return {
-        zivs: [x, "x", 7],
-        govs: (5 - x),
-        kaija: x > 5 ? "x ir lielāks par 5" : "x nav lielāks par 5",
-    }
-}))
+// console.log(numbers.map(x => ({zivs: x, govs: (5 - x)})))
+// console.log(numbers.map(x => {
+//     let y = 10 - x * 2
+//     return {
+//         zivs: [x, "x", 7],
+//         govs: (5 - x),
+//         kaija: x > 5 ? "x ir lielāks par 5" : "x nav lielāks par 5",
+//     }
+// }))
 
-console.log("?:", true ? 3 : 1, false ? 3 : 1)
+// console.log("?:", true ? 3 : 1, false ? 3 : 1)
 
 function f(x: number, y: number): number {
     return x + y
 }
 
-console.log("f calls:", f(5, 9), f(8, 4))
+// console.log("f calls:", f(5, 9), f(8, 4))
 
 function sum(ns: Array<number>): number {
     let s = 0   
@@ -25,7 +25,7 @@ function sum(ns: Array<number>): number {
     return s
 }
 
-console.log("summas:", sum([1,2,3]), sum([6, 9, 12, -27]))
+// console.log("summas:", sum([1,2,3]), sum([6, 9, 12, -27]))
 
 function biggest(ns: Array<number>): number {
     let b = 0
@@ -36,11 +36,11 @@ function biggest(ns: Array<number>): number {
     return b
 }
 
-console.log(
-    "izprintēt lielāko:", 
-    biggest([-2, 22, 9.09, 9]), 
-    biggest([5, 7, 9, 6])
-)
+// console.log(
+//     "izprintēt lielāko:", 
+//     biggest([-2, 22, 9.09, 9]), 
+//     biggest([5, 7, 9, 6])
+// )
 
 function pozorneg(list: Array<number>) : [number, number] {
     let poz = 0
@@ -52,7 +52,7 @@ function pozorneg(list: Array<number>) : [number, number] {
     return [poz, neg]
 }
 
-console.log(pozorneg([1, 2, -1, -2]), pozorneg([-5, -6, 0, 11, -89, 76]))
+// console.log(pozorneg([1, 2, -1, -2]), pozorneg([-5, -6, 0, 11, -89, 76]))
 
 function twoarrays(array: Array<number>) : [Array<number>, Array<number>] {
     let poz : Array<number> = []
@@ -63,7 +63,7 @@ function twoarrays(array: Array<number>) : [Array<number>, Array<number>] {
     })
     return [poz, neg]
 }
-console.log(twoarrays([-9, -4, 6, 55, -89, 5, -32, 1, -10, 8]))
+// console.log(twoarrays([-9, -4, 6, 55, -89, 5, -32, 1, -10, 8]))
 
 function evenOddList(n: number): [Array<number>, Array<number>] {
     let odd = [] as Array<number> 
@@ -76,7 +76,7 @@ function evenOddList(n: number): [Array<number>, Array<number>] {
     return [odd, even]
 }
 
-console.log(evenOddList(5), [[1,3,5], [2,4]])
+// console.log(evenOddList(5), [[1,3,5], [2,4]])
 
 function rotateArray<A>(a: Array<A>): Array<A> {
     let newarray = a.slice(1)
@@ -84,14 +84,14 @@ function rotateArray<A>(a: Array<A>): Array<A> {
     return newarray
 }
 
-console.log(rotateArray([1,2,3,4,5]), [2,3,4,5,1])
+// console.log(rotateArray([1,2,3,4,5]), [2,3,4,5,1])
 
 function rotateArray2<A>(a: Array<A>): Array<A> {
     return rotateArray(rotateArray(a))
 
 }
 
-console.log(rotateArray2([1,2,3,4,5]), [3,4,5,1,2])
+// console.log(rotateArray2([1,2,3,4,5]), [3,4,5,1,2])
 
 const array1 = [1, 2, 3, 4];
 // 0 + 1 + 2 + 3 + 4
@@ -133,7 +133,23 @@ function replace(list: Array<number>, number: number): Array<number> {
     return numbers.concat(list.slice(list.length - number))
 }
 
-let list = [8, 7, 6, 5]
-console.log("list", list)
-console.log("replace", replace(list, 2))
-console.log("list", list)
+// let list = [8, 7, 6, 5]
+// console.log("list", list)
+// console.log("replace", replace(list, 2))
+// console.log("list", list)
+
+// fill(3) = [3, 3, 3]
+// fill(5) = [5, 5, 5, 5, 5]
+function fill(n: number): Array<number> {
+    let list = []
+    for(let i = 0; i < n; i++) {
+        list.push(n)
+    }
+    // init = "i = 0"
+    // cond = "i < n"
+    // kods = "list.push(n)"
+    // next = "i++"
+    return list
+}
+
+console.log('fill', fill(3), fill(5))
