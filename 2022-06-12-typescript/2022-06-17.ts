@@ -153,3 +153,136 @@ function fill(n: number): Array<number> {
 }
 
 console.log('fill', fill(3), fill(5))
+
+// fillSquare(5) = [[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5]]
+function fillSquare(n: number): Array<Array<number>> {
+    let list: Array<number> = []
+    for(let i = 0; i < n; i++) {
+        list.push(n)
+    }
+
+    let bigList: Array<Array<number>> = []
+    for(let i = 0; i < n; i++) {
+        bigList.push(list)
+    }
+    return bigList
+}
+
+console.log('fillSquare', fillSquare(5))
+
+//evenList(7) = [14, 12, 10, 8]
+//evenList(6) = [12, 10, 8, 6]
+function evenList(n: number): Array<number> {
+    let list: Array<number> = []
+    for(let i = n * 2; i >= n; i = i - 2) {
+        list.push(i)
+    }
+    return list
+}
+console.log("evenList:", evenList(6), evenList(7), evenList(11))
+
+// ===== 2022.07.03
+
+//n=4 => sum=1+2+3+4
+function summa(n: number): number {
+    let list: Array<number> = []
+    for(let i = 0; i <= n; i++) {
+        list.push(i)
+    }
+    return list.reduce((a, b) => a + b)
+}
+console.log("summa: ", summa(4), summa(10))
+
+//[0, 0, step, -step, 2 * step, -2 * step, ...]; end = 6, step = 2 => [0, 0, 2,-2, 4, -4]
+function endStep(end: number, step: number): Array<number> {
+    let list = [0, 0]
+    for(let i = step; i < end; i = i * 2) {
+        list.push(i)
+        list.push(-i)
+        //list.push(i, -i)
+    }
+    return list
+}
+console.log("endStep: ", endStep(6, 2), endStep(8, 4), endStep(10, 2))
+
+//Saņemot skaitli n, atgriezt 1 ar n nullēm galā (pieņemsim, ka n <= 10). 
+//Piemērs: n = 5, rezultāts = 100000. (Sākumstāvoklis = 1, izmaiņa ir i = i * 10 un vai nu next vai kodu var izlaist!)
+function nulls(n: number): number {
+    let number = 0
+    for(let i = 1; i <= n; i++) {
+        number = Math.pow(10, i )
+    }
+    return number
+}
+console.log("nulls: ", nulls(5), nulls(3))
+
+//Saņemot skaitli n, atgriezt sarakstu ar n tukšiem sarakstiem. 
+//Piemērs: n = 5, rezultāts = [[], [], [], [], []]. 
+//Visam labāk pierakstīt tipus manuāli kā vingrinājumu. 
+//Par nosacījumu izmantot ārpus for redzamības loka (scope) definētā saraksta garumu nevis pašu for mainīgo!
+function arrays(n: number): Array<Array<number>> {
+    let array = []
+    let bigArray = []
+    for(let i = 1; i <= n; i++) {
+        bigArray.push(array)
+    }
+    return bigArray
+}
+console.log("arrays: ", arrays(3), arrays(6))
+
+// ===== 2022.07.05.
+
+//a = [5, 3, 1] => f(a)= [4, 2, 0]
+function minusOne(a: Array<number>): Array<number> {
+    for(let i: number = 0; i < a.length; i++) {
+        a[i] = a[i] - 1
+    }
+    return a
+    //let newArray: Array<number> = a.map(n => n - 1)
+    //return newArray
+}
+let moa = [5,4,2]
+console.log('minusOne1', moa)
+console.log('minusOne2', minusOne(moa))
+console.log('minusOne3', moa)
+console.log('minusOne4', minusOne([3, 2, 1]), minusOne([10, 5, 9, 1]))
+
+//Saņemot masīvu ar skaitļiem ns (short for numbers), pieskaiti katram skaitlim visa masīva ns sumu un atgriezt to. 
+//Piemērs: f([6, 8, 1, -2]) = [19, 21, 14, 11]. 
+//“ns” saturam jāpaliek tādam pašam! 
+//Iepriekšējo uzdevumu funkcijas drīkst izmantot.
+function sumOfArray(ns: Array<number>): Array<number> {
+    let summa = ns.reduce((a, b) => a + b)
+    for(let i: number = 0; i < ns.length; i++) {
+        ns[i] = ns[i] + summa
+    }
+    return ns
+    // let summa = ns.reduce((a, b) => a + b)
+    // let newArray = ns.map(n => n + summa)
+    // return newArray
+}
+console.log("sumOfArray: ", sumOfArray([1, 2, 3]))
+
+//Saņemot masīvu ar skaitļiem ns, liec tos jaunā masīva sākumā, ja tie ir negatīvi, bet beigās, ja tie ir pozitīvi. 
+//Atgriez jauno masīvu. Piemērs: [5, -7, 4, 3, -1] => [-1, -7, 5, 4, 3].
+//https://stackoverflow.com/questions/586182/how-to-insert-an-item-into-an-array-at-a-specific-index-javascript 
+function negPoz(ns: Array<number>): Array<number> {
+    let newArray = []
+    for(let i: number = 0; i < ns.length; i++) {
+        if (!(ns[i] < 0)) {
+            newArray.splice(newArray.length, 0, ns[i]) 
+        } else {
+            newArray.splice(0, 0, ns[i]) 
+        }
+    }
+    return newArray
+}
+console.log("negPoz; ", negPoz([3, 4, -1, -9]), negPoz([5, -7, 4, 3, -1]))
+
+//Saņemot masīvu ar skaitļiem, sasummē un atgriez visu skaitļu summu no labās puses. 
+//Piemērs: [5, 6, 0, 7, 6] => 24.
+function arraySum(a: Array<number>): number {
+    let s = a.reduce((a, b) => a + b)
+    return s
+}
+console.log("arraySum: ", arraySum([1, 2, 3]))
