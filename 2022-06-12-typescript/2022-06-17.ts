@@ -116,11 +116,6 @@ function replace(list: Array<number>, number: number): Array<number> {
     //         return element
     // })
 
-    // list.forEach((element, index) => {
-    //     if (index < number) list[index] = number
-    // })
-    // return list
-
     // let out: Array<number> = []
     // list.forEach((element, index) => { // element = 1, index = 0
     //     if (index < number) out.push(number); else out.push(element)
@@ -129,21 +124,26 @@ function replace(list: Array<number>, number: number): Array<number> {
     // })
     // return out
 
+    // list.forEach((element, index) => {
+    //     if (index < number) list[index] = number
+    // })
+    // return list
+
     const numbers = Array.from(Array(number).keys()).map(_ => number)
     return numbers.concat(list.slice(list.length - number))
 }
 
-// let list = [8, 7, 6, 5]
-// console.log("list", list)
-// console.log("replace", replace(list, 2))
-// console.log("list", list)
+let list = [8, 7, 6, 5]
+console.log("list", list)
+console.log("replace", replace(list, 2))
+console.log("list", list)
 
 // fill(3) = [3, 3, 3]
 // fill(5) = [5, 5, 5, 5, 5]
-function fill(n: number): Array<number> {
+function fill<A>(n: number, a: A): Array<A> {
     let list = []
     for(let i = 0; i < n; i++) {
-        list.push(n)
+        list.push(a)
     }
     // init = "i = 0"
     // cond = "i < n"
@@ -152,7 +152,7 @@ function fill(n: number): Array<number> {
     return list
 }
 
-console.log('fill', fill(3), fill(5))
+console.log('fill', fill(3, 0), fill(5, "x"))
 
 // fillSquare(5) = [[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5]]
 function fillSquare(n: number): Array<Array<number>> {
@@ -208,11 +208,13 @@ console.log("endStep: ", endStep(6, 2), endStep(8, 4), endStep(10, 2))
 //Saņemot skaitli n, atgriezt 1 ar n nullēm galā (pieņemsim, ka n <= 10). 
 //Piemērs: n = 5, rezultāts = 100000. (Sākumstāvoklis = 1, izmaiņa ir i = i * 10 un vai nu next vai kodu var izlaist!)
 function nulls(n: number): number {
-    let number = 0
+    let x = 1
+    // for(let i = 9 + 1; i <= 9 + n; i++) {
     for(let i = 1; i <= n; i++) {
-        number = Math.pow(10, i )
+        x = x * 10
     }
-    return number
+    return x
+    //return Math.pow(10, n)
 }
 console.log("nulls: ", nulls(5), nulls(3))
 
@@ -282,7 +284,160 @@ console.log("negPoz; ", negPoz([3, 4, -1, -9]), negPoz([5, -7, 4, 3, -1]))
 //Saņemot masīvu ar skaitļiem, sasummē un atgriez visu skaitļu summu no labās puses. 
 //Piemērs: [5, 6, 0, 7, 6] => 24.
 function arraySum(a: Array<number>): number {
-    let s = a.reduce((a, b) => a + b)
-    return s
+    let summa = 0
+    // for(let i = a.length - 1; i >= 0; i--) {
+    //     summa = summa + a[i]
+    // }
+    let i = a.length - 1
+    for(;;) {
+        if (!(i >= 0)) {
+            break
+        }
+        summa = summa + a[i]
+        i--
+    }
+    return summa
+    // let s = a.reverse().reduce((a, b) => a + b)
+    // return s
 }
 console.log("arraySum: ", arraySum([1, 2, 3]))
+
+//Saņemot masīvu ar skaitļiem, sasummē un atgriez visu skaitļu summu no labās puses, :1057:36)
+//bet beidz summēt (apstādinot ciklu ar apgalvojumu “break”), ja skaitlis ir mazāks par 1. 
+//Piemērs: [5, 6, 0, 7, 6] => 13. https://www.w3schools.com/js/js_break.asp 
+function sumRightWithBreak(a: Array<number>): number {
+    let summa = 0
+    for(let i = a.length - 1; i >= 0; i--) {
+        if (a[i] < 1) {
+            break
+        }
+        summa = summa + a[i]
+    }
+    return summa
+}
+console.log("sumRightWithBreak: ", sumRightWithBreak([4, 5, 6, -1, 9, 2]))
+
+//(Sarežģīts, jāizmanto ir gan splice, gan break.) 
+//Saņemot masīvu ar skaitļiem ns, izveido jaunu masīvu un skaitļus no ns liec jaunajā masīvā pa vienam, 
+//liekot jauno tieši pirms pirmā lielākā skaitļa salīdzinot ar esošo (no kreisās puses). 
+function oneByOne(ns: Array<number>): Array<number> {
+    let newArray = []
+    for(let i = 0; i <= ns.length - 1; i++) {
+        let j: number = 0
+        for (; j < newArray.length; j++) {
+            if (ns[i] <= newArray[j]) {
+                break
+            }
+        }
+        newArray.splice(j, 0, ns[i])
+    }
+    return newArray
+}
+
+console.log('oneByOne:', oneByOne([1, 10, 5, 3, 7, 2, 6, 4, 9, 8, 11]))
+
+//atrodi lielāko skaitli sarakstā
+function biggestNumber(a:Array<number>): number {
+    let biggest = 0 
+    for(let i = 0; i<= a.length - 1; i++) {
+        if (a[i] > biggest) {
+            biggest = a[i]
+        } else {
+            biggest
+        }
+    } 
+    return biggest
+}
+console.log("biggestNumber: ", biggestNumber([4,3,2]), biggestNumber([5, 1, 8, 0, 9, 7]))
+
+//atriez sarakstu bez lielākā skaitļa 
+function withoutBiggestNumber(a:Array<number>): Array<number> {
+    let biggest = 0
+    for(let i = 0; i<= a.length - 1; i++) {
+        if (a[i] > biggest) {
+            biggest = a[i]
+        } else {
+            biggest
+        }
+    }
+    a.splice(a.indexOf(biggest), 1) //šīs rindiņas rezultāts ir jauns Array, kas satur izņemto vērtību (biggest) => [biggest]
+    return a //atgriež izmainītu a jeb a bez biggest vērtības
+}
+function secondBiggest(a: Array<number>): number {
+    withoutBiggestNumber(a) //paņem oriģinālo a un atgriež a1
+    return biggestNumber(a) //paņem a1 un atgriež number(biggest)
+}
+console.log("secondBiggest: ", secondBiggest([1, 3, 8, 7, 9]), secondBiggest([4, 1, 10, 7, 33, 32]))
+
+function slice<A>(xs: Array<A>, start: number, end: number): Array<A> {
+    let a = []
+    if (start < end) {
+        for(let i = start; i <= end; i++) {
+            a.push(xs[i])
+        }
+        return a
+    } else {
+        for(let i = end; i <= start; i++) {
+            a.push(xs[i])
+        }
+       return a.reverse()
+    }
+
+    // for(let i = 0; i<= xs.length - 1; i++) {
+    //    if(i >= start && i <= end) {
+    //         a.push(xs[i])
+    //    } else {
+    //        []
+    //    }
+    // }
+}
+console.log('slice', slice<string>(['⭐', '💜', '*', '🙃', '♾'], 2, 3))
+console.log('slice', slice<number>([9, 8, 7, 6, 5, 4, 3], 1, 4))
+console.log('slice', slice<string>(['⭐', '💜', '*', '🙃', '♾'], 4, 1))
+console.log('slice', slice<number>([9, 8, 7, 6, 5, 4, 3], 5, 2))
+
+// Uztaisi 2d sarakstu no skaitļiem n, m tā lai visos būtu nulles
+function replaceZero(n: number, m: number): Array<Array<number>> {
+    let array = []
+    let newArray = []
+    array.push(n, m)
+    let zeros = array.map(x => 0)
+    newArray.push(zeros)
+    return newArray
+}
+console.log("replaceZero: ", replaceZero(1, 2))
+
+// outputā vajag būt n * m lielam masīvam, pildītam ar ar nullēm
+// priekš replaceZero(2, 3) sanāk [[0, 0], [0, 0], [0, 0]]
+// priekš replaceZero(4, 2) sanāk [[0, 0, 0, 0], [0, 0, 0, 0]]
+function replaceNull(n: number, m: number): Array<Array<number>> {
+    // let an = []
+    // let am = []
+    // for(let i = 1; i <= n; i++) {
+    //     an.push(0)
+    // }
+    // for(let i = 1; i <= m; i++) {
+    //     am.push(an)
+    // }
+    // return am
+    return Array.from(Array(m).keys()).map(_ => 
+        Array.from(Array(n).keys()).map(_ => 0)
+    )    
+} 
+console.log("replaceNull: ", replaceNull(2, 3))
+
+// function gaga(n: number, m: number): Array<Array<number>> {
+//     let array = []
+//     let newArray = []
+//     array.push(n)
+//     array.reduce(a => a, a)
+// }
+
+// replaceIdx([0, 0, 0, 0, 0], 2, 5) = [0, 0, 5, 0, 0]
+function replaceIdx(list: Array<number>, i: number, n: number): Array<number> {
+    list[i] = n
+    return list
+}
+let rilist = [0, 0, 0, 0, 0]
+console.log('replaceIdx', replaceIdx(rilist, 2, 5))
+console.log('replaceIdx rilist', rilist)
