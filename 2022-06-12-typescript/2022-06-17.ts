@@ -424,7 +424,7 @@ function replaceNull(n: number, m: number): Array<Array<number>> {
         Array.from(Array(n).keys()).map(_ => 0)
     )    
 } 
-console.log("replaceNull: ", replaceNull(2, 3))
+console.log("replaceNull: ", replaceNull(2, 3), replaceNull(4, 2))
 
 // function gaga(n: number, m: number): Array<Array<number>> {
 //     let array = []
@@ -441,3 +441,56 @@ function replaceIdx(list: Array<number>, i: number, n: number): Array<number> {
 let rilist = [0, 0, 0, 0, 0]
 console.log('replaceIdx', replaceIdx(rilist, 2, 5))
 console.log('replaceIdx rilist', rilist)
+
+function arrayDiagonal(n: number): Array<Array<number>> {
+    let arrayn = Array.from(Array(n).keys())
+    let arraym = Array.from(Array(n).keys()).map((e, i) => arrayn.map(a => a + i))
+    return arraym
+}
+console.log("arrayDiagonal: ", arrayDiagonal(3))
+
+// Ja tev iedod array: Array<Array<A>>, un p: Point (nokopē point tipu) un a: A, izmaini "array at p to a".
+type Point = [number, number] // x, y
+type Row = Array<number>
+type Grid = Array<Row>
+let grid: Grid = [
+    [9, 8, 7] as Row,
+    [8, 7, 6] as Row,
+    [7, 6, 5] as Row,
+]
+
+// Grid = Array<Row> = Array<Array<number>>
+
+function replaceGrid(a: Grid, p: Point, n: number): void {
+  
+}
+console.log('grid before', grid)
+replaceGrid(grid, [1, 1], 0)
+console.log('grid after', grid)
+
+// Leldes eglīte :)
+
+function fillArray<A>(n: number, a: A): Array<A> {
+    return Array.from(Array(n).keys()).map(_ => a)
+}
+console.log('fillArray(3, ":)") =', fillArray(3, ':)'))
+
+// Uztaisi eglīti priekš n: number un izprintē. 
+function eglite(n: number): Array<Array<number>> {
+    let array = Array.from(Array(n).keys()).map(n => "-")
+    let arrayBig =[]
+    for (let i = 1; i <= n; i++) {
+    arrayBig.push(array)
+    }
+    return arrayBig
+    
+    //for(let r = 0; r <= n - 1; r++) {
+        //let array = Array.from(Array(n).keys()).map(
+            //if(array[r] == n - 1) {
+              //array[r] => "*"
+            //} else {
+            //array[r] => "_"
+           // }
+       // )
+}
+console.log("eglite: ", eglite(5))
