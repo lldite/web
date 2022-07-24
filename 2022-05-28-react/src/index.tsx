@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
+// import Datums from './Datums'
+// import List from './List'
+// import Eseja from './Eseja'
+// import Forma from './Forma'
+// import Matematika from './Matematika'
 import App from './App'
 
 const root = ReactDOM.createRoot(
