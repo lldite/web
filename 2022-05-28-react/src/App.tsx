@@ -1,42 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-
-// return an array with `a` repeated `times` times
-function fill<A>(times: number, a: A): Array<A> {
-  let list: Array<A> = []
-  for(let i = 0; i < times; i++) {
-      list.push(a)
-  }
-  // init = "i = 0"
-  // cond = "i < n"
-  // kods = "list.push(n)"
-  // next = "i++"
-  return list
-}
-
-// return an array in interval 1 to `times`
-function times(times: number): Array<number> {
-  let list: Array<number> = []
-  for(let i = 1; i <= times; i++) {
-      list.push(i)
-  }
-  return list
-}
+import Info from './Info'
+import Tabula from './Tabula'
+import Veidlapa from './Veidlapa'
 
 function App() {
-  let [x, setX] = useState(0)
-  // x: number
-  // setX: number => void
+  useEffect(() => {
+     document.title = 'Mazie rīdzinieki'
+  })
 
-  return (
+  let [section, setSection] = useState("info") // dati, kuri norāda uz lapu, kuru jārāda
+
+  let html = (
     <div className="App">
-      <span className="minus" onClick={click => setX(x - 1)}>-</span>
-      <span className="plus" onClick={click => setX(x + 1)}>+</span>
-      <div className="number">
-        {times(x).map(x => <div key={x}>{x}th block</div>)}
+      <div className="menu">
+        <span onClick={event => setSection("info")}>info</span>
+        <span onClick={event => setSection("veidlapa")}>veidlapa</span>
+        <span onClick={event => setSection("tabula")}>tabula</span>
       </div>
+
+      {section === "info" ? <Info /> : false}
+      {section === "veidlapa" ? <Veidlapa /> : false}
+      {section === "tabula" ? <Tabula /> : false}
     </div>
   )
+
+  return html
 }
 
 export default App

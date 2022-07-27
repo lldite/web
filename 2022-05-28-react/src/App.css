@@ -1,5 +1,17 @@
 .App {
-  margin: 5em;
+  margin: 3em;
 }
 
-.App span { display: inline-block; padding: 0 1em; margin: 0 1em; font-size: 30px; background: #eee; }
+.menu {margin-bottom: 2em}
+.menu span {padding: 1em; border: 1px solid #bbb;}
+
+.Info span {font-weight: bold; font-size: 1.2em}
+
+.Veidlapa div {color: #374d4a}
+.Veidlapa span {font-weight: bold; font-size: 1.2em}
+.Veidlapa h1 {color: #374d4a}
+.Veidlapa .grupa {padding: 0.3em 0}
+
+.Tabula th, .Tabula td {border: 1px solid black}
+.Tabula img {max-width: 200px; max-height: 200px}
+.Tabula td, .Tabula th, .Tabula p {color: #062c52}
