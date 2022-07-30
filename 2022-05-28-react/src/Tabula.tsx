@@ -73,12 +73,12 @@ function Tabula() {
             <td>{dzivnieks.dzimums}</td>
             <td>{dzivnieks.vecums} gad{dzivnieks.vecums === 1 ? "s" : "i"}</td>
             <td>{dzivnieks.apraksts}</td>
-            <td style={{color: krasa}}>{dzivnieks.statuss}</td>
+            <td style={{color: krasa}}><b>{dzivnieks.statuss}</b></td>
         </tr>
     })
 
     return <div className="Tabula">
-        <p>Pie mums mājojošie Mazie rīdzinieki</p>
+        <p>Pie mums mājojošie mazie rīdzinieki:</p>
         <table>
             <thead>
                 <tr>

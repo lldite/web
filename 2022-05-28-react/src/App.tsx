@@ -14,9 +14,9 @@ function App() {
   let html = (
     <div className="App">
       <div className="menu">
-        <span onClick={event => setSection("info")}>info</span>
-        <span onClick={event => setSection("veidlapa")}>veidlapa</span>
-        <span onClick={event => setSection("tabula")}>tabula</span>
+        <span onClick={event => setSection("info")}>Par mums</span>
+        <span onClick={event => setSection("veidlapa")}>Adopcija</span>
+        <span onClick={event => setSection("tabula")}>Mazie rīdzinieki</span>
       </div>
 
       {section === "info" ? <Info /> : false}

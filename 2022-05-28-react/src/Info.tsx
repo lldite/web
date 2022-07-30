@@ -1,9 +1,9 @@
 function Info() {
    return <div className="Info">
       <title>Mazie rīdzinieki</title>
-      <h1>Mazie rīdzinieki</h1>
+      <h1>Patversme "Mazie rīdzinieki"</h1>
       <p> <span>Mazie rīdzinieki ir </span>pagaidu mājvieta Rīgā un Pierīgā noklīdušiem un pamestiem kaķiem. Mēs palīdzam šiem mazajiem rīdziniekiem meklēt un atrast savus vai jaunus saimniekus un mājas.</p>
-      <p>Tā kā atrodamies pašā Rigas sirdī un mūsu telpas nav lielas, pie mums galvenokārt kā astainie rezidenti ir kaķi, bet, protams, palīdzīgu roku sniedzam arī suņiem un citiem mataini astainajiem rīdziniekiem.
+      <p>Tā kā atrodamies pašā Rīgas sirdī un mūsu telpas nav lielas, pie mums galvenokārt kā astainie rezidenti ir kaķi, bet, protams, palīdzīgu roku sniedzam arī suņiem un citiem mataini astainajiem rīdziniekiem.
          Ja pie mums nonāk dzīvnieks, kuram uz doto brīdi pie mums nav vietas, sadarbojamies ar <a href="https://ulubele.org/">Ulubele</a>, <a href="https://patversme.lv/"> Labajās mājas</a> un <a href="https://www.mezavairogi.lv/"> Mežavairogi</a> par dzīvnieka uzņemšanu viņu telpās.</p>
       <p>Mazo rīdzinieku kaķu patversmes <span>apmeklējums iespējams adopcijas nolūkā. </span>
          Lūgums pirms jebkura patversmes apmeklējuma iepriekš telefoniski sazināties, zvanot pa tālruni <span> +371 29240597</span> vai rakstot e-pastu uz <span>info@mazieridzinieki.lv.</span></p>

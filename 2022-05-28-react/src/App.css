@@ -1,17 +1,25 @@
 .App {
-  margin: 3em;
+  margin: 3em; 
 }
 
-.menu {margin-bottom: 2em}
-.menu span {padding: 1em; border: 1px solid #bbb;}
+.menu {margin-bottom: 4em}
+.menu span {padding: 1em; margin: 1em; border: 5px solid #bbb; border-radius: 24px; background: #473052; font-size: x-large; color: #dbd5de}
 
-.Info span {font-weight: bold; font-size: 1.2em}
+.Info span {font-weight: bold; font-size: 1.2em; color: #690c3d}
+.Info h1 {color: #690c3d}
+.Info p {color: #690c3d}
+.Info img {width: 350px; height: auto; border-radius: 10px}
 
 .Veidlapa div {color: #374d4a}
 .Veidlapa span {font-weight: bold; font-size: 1.2em}
 .Veidlapa h1 {color: #374d4a}
 .Veidlapa .grupa {padding: 0.3em 0}
+.Veidlapa input.error {background: pink}
+.Veidlapa input {border-radius: 7px}
+.Veidlapa button {border-radius: 7px}
+.Veidlapa .vards {margin: 0 10px 0 0}
 
-.Tabula th, .Tabula td {border: 1px solid black}
+.Tabula th, .Tabula td {border: 1px solid black; border-radius: 7px}
 .Tabula img {max-width: 200px; max-height: 200px}
 .Tabula td, .Tabula th, .Tabula p {color: #062c52}
+
