@@ -494,3 +494,18 @@ function eglite(n: number): Array<Array<number>> {
        // )
 }
 console.log("eglite: ", eglite(5))
+
+function sumToN(n: number): number {
+    let a = 0
+    for(let i = 1; i <= n; i++){
+        a = a + i
+    }
+    return a
+}
+console.log("sumToN: ", sumToN(5))
+
+function summaReduce(n: number): number {
+    let list = Array.from(Array(n).keys()).map( a => a + 1)
+    return list.reduce((a, b) => a + b)
+}
+console.log("summaReduce: ", summaReduce(5))

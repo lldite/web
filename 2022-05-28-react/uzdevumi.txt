@@ -1,0 +1,72 @@
+9. lūdzu izveidojiet jaunu (angular) komponentu "matematika" un no saņemtajiem failiem izvēlieties vienu failu ar .ts formātu
+šajā failā esošajai klasei pievienojiet summas funkciju, kas ņem 2 parametrus un atgriež šo divu skaitļu summas rezultātu.
+lūdzu, augšupielādējiet šo failu    
+
+10. izveidojiet komponentu un ielādējiet tā ts, html failus.
+izveidojiet reģistrācijas veidlapu ar e-pasta un paroles Input
+nospiežot pogu Input vertibas ir jānotīra un jāparādās pazinojuma logam
+(neobligāti) - pārbaudiet ievades laukus (input), izmantojot regulāras izteiksmes, un atveriet jaunu logu, ja dati ir ievadīti pareizi
+
+11. izveidojiet komponentu "eseja". pievienojiet tam 3 rindkopas
+izveidojiet direktīvu, kas mainīs otrās rindkopas fontu uz slīprakstu.
+ielādējiet direktīvas ts failu un komponentu html
+
+12. izmantojiet ngFor un ngIf, lai parādītu sarakstu (<ul> vai <ol>) ar 100 cipariem, izņemot tos, kas dalās ar 11 vai 25.
+Pievienojiet tikai html failu
+pēc izvēles — nokrāsojiet visus pāra skaitļus sarkanā krāsā
+
+14. Šo uzdevumu var veikt 2 veidos. izvēlieties vienu un tikai vienu veidu.
+1) izmantot Angular un Typescript
+2) tīrs JS un html
+parādiet lapā šodienas datumu (Date.now() vai new Date()) un pievienojiet pogu, uz kuras noklikšķinot, datumam tiks pievienota viena diena
+
+jums var būt nepieciešams:
+https://stackoverflow.com/a/19691491
+https://stackoverflow.com/a/51300093
+(tikai component.ts + component.html vai .html + .js)
+
+projekts:
+
+Uzdevums ir izveidot projektu, izmantojot vienu no divām pieejām:
+• Angular + Typescript
+• Html + JS + CSS
+
+Jūs varat izmantot jebkuru jums piemērotu pieeju. Projektam jābūt vismaz 3 lappām:
+1. Lapa ar informāciju par. . .
+2. Tīmekļa lapa ar aizpildāmu veidlapu
+3. Datu tabula
+
+Projektam jums vajadzētu izvēlēties arī vienu no 5 tēmām:
+• Autosalons - automašīnu pārdošana
+• Viesnīca - istabu īre uz nakti
+• Dzīvnieku patversme - dzīvnieku reklāma
+• Skaistumkopšanas salons - pieraksts uz kosmētiskajām procedūrām/frizūru
+• Privātais ezers makšķerēšanai - rezervējot laiku un vietu makšķerēšanai
+
+Pēc izstrādes pabeigšanas augšupielādēt projektu portālā.
+Angular - viss projekts arhīvā bez mapes node_modules
+Html + JS + CSS - viss projekts arhīvā
+zemāk ir saraksts ar to, par ko varat iegūt punktus. Nav jādara viss, bet vēlams vairāk
+
+1. Info
+• virsraksts - tēmas nosaukums
+• rindkopa ar tekstu - pāris teikumi
+• pievienojiet attēlu
+• fona krāsas maiņa
+• "bootstrap grid"
+• poga, lai pārietu uz citām lapām
+• pievienojiet saiti uz citu vietni
+2. Form
+• 2 dažādi ievades veidi (teksts, numurs, datums utt.)
+• X ievades validācija
+• pogu, lai atvērtu sākumlapu
+• X pēc pareizas ievades tiek parādīts ziņojums
+• sarkanā krāsā iezīmējot tos laukus, kas nav aizpildīti pareizi
+3. Table
+• vismaz 2 kolonnas
+• X krāsotas dažādās krāsās atkarībā no datiem. piemēram: automašīna ir pārdota - līnija
+ir sarkana. pieejama automašīna - zaļā līnija
+• bildes tabulā
+
+lai iegūtu 10, jums jāpievieno Backend- Express vai jāizmanto tiešsaistes serveri, piemēram,
+https://gorest.co.in/
