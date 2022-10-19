@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 //import App from './next/App'
-import App from './galadarbs/App.tsx' 
+import App from './galadarbs/App' 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
