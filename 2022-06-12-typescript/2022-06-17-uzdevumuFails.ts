@@ -25,7 +25,8 @@ function sum(ns: Array<number>): number {
     return s
 }
 
-// console.log("summas:", sum([1,2,3]), sum([6, 9, 12, -27]))
+console.log(1)
+console.log("summas:", sum([1,2,3]), sum([6, 9, 12, -27]))
 
 function biggest(ns: Array<number>): number {
     let b = 0
@@ -52,7 +53,7 @@ function pozorneg(list: Array<number>) : [number, number] {
     return [poz, neg]
 }
 
-// console.log(pozorneg([1, 2, -1, -2]), pozorneg([-5, -6, 0, 11, -89, 76]))
+console.log(pozorneg([1, 2, -1, -2]), pozorneg([-5, -6, 0, 11, -89, 76]))
 
 function twoarrays(array: Array<number>) : [Array<number>, Array<number>] {
     let poz : Array<number> = []
@@ -68,7 +69,7 @@ function twoarrays(array: Array<number>) : [Array<number>, Array<number>] {
 function evenOddList(n: number): [Array<number>, Array<number>] {
     let odd = [] as Array<number> 
     let even: Array<number> =[]
-    const numbers = Array.from(Array(n).keys()).map(n => n + 1)
+    const numbers = Array.from(Array(n).keys()).map(n => n + 1) // = [1,2,...n]
     numbers.forEach(n => {
         if (n % 2 == 0) even.push(n)
         else odd.push(n)
