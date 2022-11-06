@@ -185,7 +185,7 @@ console.log(threerange(48, 99, 78), threerange(1, 1, 2), threerange(5, 100, 59))
 function fifth(s: string): string {
     let takeout = "Script"
     let without = s.replace(takeout, "")
-    if(s.slice(4) == takeout) return without
+    if (s.slice(4) == takeout) return without
     else return s
 }
 console.log(fifth("bananadrama"), fifth("JavaScript"), fifth("JaavaScript"))
@@ -219,7 +219,7 @@ function tworanges(e: number, h: number): Boolean {
         else false
     }
     if (interval(e) == true && interval(h) == true) return true
-    else false 
+    else false
 }
 console.log("tworanges: ", tworanges(80, 56), tworanges(1, 99), tworanges(55, 56))
 
@@ -232,10 +232,10 @@ function largernum(n: number, m: number): string {
         if (n >= 40 && n <= 60) return true
         else false
     }
-    if (interval(n) == true && interval(m) == true) 
+    if (interval(n) == true && interval(m) == true)
         return l.reduce((a, b) => (Math.max(a, b))).toString()
-        else return "not in range"
-}    
+    else return "not in range"
+}
 console.log("largernum: ", largernum(0, 3), largernum(44, 79), largernum(50, 60))
 
 // 35. Write a program to check whether a specified character exists within the 2nd to 4th position in a given string.
@@ -248,18 +248,136 @@ console.log("exist: ", exist("frtgyhju", "j"), exist("kartupelis", "r"), exist("
 // 36. Write a JavaScript program to check whether the last digit of the three given positive integers is same.
 
 function lastdigit(n: number, nn: number, nnn: number): Boolean {
-    // extract common code to function
-    let ns = n.toString()
-    let nns = nn.toString()
-    let nnns = nnn.toString()
-    if ((ns.charAt(ns.length -1) == nns.charAt(nns.length -1)) && (ns.charAt(ns.length -1) == nnns.charAt(nnns.length -1))) return true
-    else return false    
+    function lastchar(a: number): string {
+        let aa = a.toString()
+        return aa.charAt(aa.length - 1)
+    }
+    if ([n, nn, nnn].every(a => a >= 0) && lastchar(n) == lastchar(nn) && lastchar(n) == lastchar(nnn)) return true
+    else return false
+
+    // let ns = n.toString()
+    // let nns = nn.toString()
+    // let nnns = nnn.toString()
+    // if ((ns.charAt(ns.length - 1) == nns.charAt(nns.length - 1)) && (ns.charAt(ns.length - 1) == nnns.charAt(nnns.length - 1))) return true
+    // else return false
 }
-console.log("lastdigit: ", lastdigit(5, 88, 23), lastdigit(19, 9, 79), lastdigit(0, 3, 10))
+console.log("lastdigit: ", lastdigit(5, 88, 23), lastdigit(19, 9, 79), lastdigit(0, 3, 10), lastdigit(80, -90, 0))
 
+// 37. Write a JavaScript program to create new string with first 3 characters are in lower case from a given string. 
+// If the string length is less than 3 convert all the characters in upper case. 
 
+function ssttrriinngg(s: string): string {
+    if (s.length <= 3) return s.slice(0, 3).toLowerCase()
+    else return s.toUpperCase()
+}
+console.log("ssttrriinngg: ", ssttrriinngg("aBc"), ssttrriinngg("kartupelis"), ssttrriinngg("TNT"))
 
+// 39. Write a JavaScript program to compute the sum of the two given integers.
+//  If the sum is in the range 50..80 return 65 other wise return 80. 
 
+function sumsum(i: number, ii: number): number {
+    if ((i + ii) >= 50 && (i + ii) <= 80) return 65
+    else return 80
+}
+console.log("sumsum: ", sumsum(3, 0), sumsum(45, 20))
+
+// 40. Write a JavaScript program to check from two given integers whether one of them is 8 or their sum or difference is 8.
+
+function eight(e: number, ee: number): Boolean {
+    if (e == 8 || ee == 8 || e + ee == 8 || Math.abs(e - ee) == 8) return true
+    else return false
+}
+console.log("eight: ", eight(4, 4), eight(91, 9), eight(8, 16))
+
+// 41. Write a JavaScript program to check three given numbers, 
+// if the three numbers are same return 30 otherwise return 20 and if two numbers are same return 40. 
+
+function threenums(n: number, nn: number, nnn: number): number {
+    if (n == nn && n == nnn) return 30
+    if ((n == nn && n !== nnn) || (n == nnn && n !== nn) || (nn == nnn && nn !== n)) return 40
+    else return 20
+}
+console.log("41. threenums: ", threenums(8, 90, -12) == 20, threenums(5, 0, 5) == 40, threenums(0, 0, 0) == 30, threenums(4, 32, 32) == 40)
+
+//42. Write a JavaScript program to check whether two given numbers are increasing in strict mode or in soft mode.  
+// Note: Strict mode -> 10, 15, 31 : Soft mode -> 24, 22, 31 or 22, 22, 31
+
+function strictsoft(n: number, nn: number): string {
+    if (nn - n >= 1) return "Strict mode"
+    else // if(nn - n <= 0) 
+        return "Soft mode"
+}
+console.log("strictsoft: ", strictsoft(34, 90), strictsoft(8, 3), strictsoft(87, 87))
+
+//42. Write a JavaScript program to check whether three given numbers are increasing in strict mode or in soft mode.  
+// Note: Strict mode -> 10, 15, 31 : Soft mode -> 24, 22, 31 or 22, 22, 31
+
+function strictsofthree(n: number, nn: number, nnn: number): string {
+    if (nn - n >= 1 && nnn - nn >= 1) return "Strict mode"
+    else // if(nn - n <= 0 & nnn - nn <= 1) 
+        return "Soft mode"
+}
+console.log("strictsofthree: ", strictsofthree(34, 1, 90), strictsofthree(8, 3, 2), strictsofthree(87, 800, 832))
+
+// 43. Write a JavaScript program to check from three given numbers (non negative integers) that two or all of them have the same rightmost digit.
+
+function rightmost(n: number, nn: number, nnn: number): Boolean {
+    if (n >= 0 && nn >= 0 && nnn >= 0) {
+        function lastnum(a: number): number {
+            return a % 10
+        }
+        if ((lastnum(n) == lastnum(nn) && lastnum(n) == lastnum(nnn)) ||
+            (lastnum(n) == lastnum(nnn) && lastnum(n) !== lastnum(nn)) ||
+            (lastnum(nn) == lastnum(nnn) && lastnum(nn) !== lastnum(n))) return true
+        else return false
+    }
+    else return false
+}
+console.log("rightmost: ", rightmost(45, 90, -1), rightmost(0, 10, 80), rightmost(55, 85, 0))
+
+// 44. Write a JavaScript program to check from three given integers that whether a number is 
+// greater than or equal to 20 and less than one of the others.
+
+function threenumbs(n: number, nn: number, nnn: number): Boolean {
+    function twenty(a: number): Boolean {
+        if (a >= 20) return true
+        else return false
+    }
+    // if (twenty(n) == true && (n < nn || n < nnn)) return true 
+    if (n >= 20 && (n < nn || n < nnn)) return true 
+    if (twenty(nn) == true && (nn < n || nn < nnn)) return true
+    if (twenty(nnn) == true && (nnn < n || nnn < nn)) return true
+    else return false
+}
+console.log("threenumbs: ", threenumbs(2, 8, 9), threenumbs(1, 2, 24), threenumbs(90, 7, 90), threenumbs(26, 90, 67))
+
+// 45. Write a JavaScript program to check two given integer values and return true if one of the number is 15 or if their sum or difference is 15. 
+
+function fifteen(n: number, nn: number): Boolean {
+    return n == 15 || nn == 15 || n + nn == 15 || Math.abs(n - nn) == 15
+
+    // let a = n == 15 || n + nn == 15 || Math.abs(n - nn) == 15
+    // let b = nn == 15 || n + nn == 15 || Math.abs(n - nn) == 15
+    // return a || b
+
+    // vakars?
+    // līst?
+    // vai ir vakars vai līst?
+    // vai ir vakars un līst?
+}
+console.log("fifteen: ", fifteen(2, 3) == false, fifteen(7, 15) == true, fifteen(0, 15), fifteen(31, 16), fifteen(7, 8))
+
+// 46. Write a JavaScript program to check two given non-negative integers that whether one of the number (not both) is multiple of 7 or 11.
+
+function seveneleven(n: number, nn: number): Boolean {
+    if (n >= 0 && nn >= 0) {
+        function modulo(a: number): Boolean {
+            return a % 7 == 0 || a % 11 == 0
+        }
+        return modulo(n) != modulo(nn)
+    } else return false
+}
+console.log("seveneleven: ", seveneleven(77, 11), seveneleven(11, 3), seveneleven(8, 4), seveneleven(6, -11))
 
 // Write a JavaScript program to check whether the person is an asshole
 
@@ -268,30 +386,36 @@ function asshole(person: string): Boolean {
 }
 console.log("asshole:", asshole("Gregorijs") == false, asshole("Raitis") == true)
 
-// https://stackoverflow.com/a/23555773
-// [1,2] == [1,2]   ===>   false
-// JSON.stringify(a1) === JSON.stringify(a2)
+// // Write a JavaScript program to check whether the person is an asshole
 
-// fill(3, 3) = [3, 3, 3]
-// fill(5, 5) = [5, 5, 5, 5, 5]
-function fill<A>(n: number, a: A): Array<A> {
-    return []
-}
-console.log(
-    'fill:',
-    JSON.stringify(fill(5, 5)) == JSON.stringify([5, 5, 5, 5, 5]),
-    JSON.stringify(fill<string>(3, "x")) == JSON.stringify(["x", "x", "x"])
-)
+// function asshole(person: string): Boolean {
+//     return person == "Raitis"
+// }
+// console.log("asshole:", asshole("Gregorijs") == false, asshole("Raitis") == true)
 
-// fillSquare(5) = [[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5]]
-function fillSquare(n: number): Array<Array<number>> {
-    return [[]]
-}
+// // https://stackoverflow.com/a/23555773
+// // [1,2] == [1,2]   ===>   false
+// // JSON.stringify(a1) === JSON.stringify(a2)
 
-//evenList(8) = [16, 14, 12, 10, 8]
-//evenList(7) = [14, 12, 10, 8]
-//evenList(6) = [12, 10, 8, 6]
-//evenList(5) = [10, 8, 6]
-function evenList(n: number): Array<number> {
-    return []
-}
+// // fill(3, 3) = [3, 3, 3]
+// // fill(5, 5) = [5, 5, 5, 5, 5]
+// function fill<A>(n: number, a: A): Array<A> {
+//     return []
+// }
+// console.log(
+//     'fill:',
+//     JSON.stringify(fill(5, 5)) == JSON.stringify([5, 5, 5, 5, 5]),
+//     JSON.stringify(fill<string>(3, "x")) == JSON.stringify(["x", "x", "x"])
+// )
+
+// // fillSquare(5) = [[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5]]
+// function fillSquare(n: number): Array<Array<number>> {
+//     return [[]]
+// }
+
+// //evenList(8) = [16, 14, 12, 10, 8]
+// //evenList(7) = [14, 12, 10, 8]
+// //evenList(6) = [12, 10, 8, 6]
+// //evenList(5) = [10, 8, 6]
+// function evenList(n: number): Array<number> {
+//     return []
