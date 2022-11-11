@@ -379,6 +379,34 @@ function seveneleven(n: number, nn: number): Boolean {
 }
 console.log("seveneleven: ", seveneleven(77, 11), seveneleven(11, 3), seveneleven(8, 4), seveneleven(6, -11))
 
+// 47. Write a JavaScript program to check whether a given number is presents in the range 40..10000.
+
+function withinnn(n: number): Boolean{
+    return n >= 40 && n <= 1000
+}
+
+// 48. Write a JavaScript program to reverse a given string. 
+
+function rreevveerrssee(s: string): string {
+    return s.split("").reverse().join("")
+}
+
+console.log("rreevveerrssee: ", rreevveerrssee("bananadrama"), rreevveerrssee("butthole"))
+
+// 49. Write a JavaScript program to replace every character in a given string with the character following it in the alphabet
+
+function alphabet(s: string): string {
+    let abc = "abcdefghijklmnopqrstuvwxyz".split("")
+    let nl = []
+    for (let i = 0; i <= s.length; i++) {
+        nl.push(abc[abc.indexOf(s[i]) + 1])
+    }
+    return nl.join("")
+
+}
+
+console.log('alphabet:', alphabet("what"), alphabet("this"))
+
 // Write a JavaScript program to check whether the person is an asshole
 
 function asshole(person: string): Boolean {
@@ -386,12 +414,78 @@ function asshole(person: string): Boolean {
 }
 console.log("asshole:", asshole("Gregorijs") == false, asshole("Raitis") == true)
 
-// // Write a JavaScript program to check whether the person is an asshole
+// 50. Write a JavaScript program to capitalize the first letter of each word of a given string.
 
-// function asshole(person: string): Boolean {
-//     return person == "Raitis"
-// }
-// console.log("asshole:", asshole("Gregorijs") == false, asshole("Raitis") == true)
+function capital(s: string): string {
+    let sl = s.split(" ")
+    function inner(a: string): string {
+        return a[0].toUpperCase() + a.slice(1, a.length)
+    } 
+    return sl.map(a => inner(a)).join(" ")
+}
+console.log("capital: ", capital("abc Ab g"), capital("es1234 gribu12345 est123456"))
+
+// 52. Write a JavaScript program to convert the letters of a given string in alphabetical order.
+
+function order(s: string): string {
+    return s.split("").sort().join("")
+}
+console.log("order: ", order("haha"), order("rata,.;tiu l;le"))
+
+// 53. Write a JavaScript program to check whether the characters a and b 
+// are separated by exactly 3 places anywhere (at least once) in a given string.  
+
+function threeplaces(s: string): Boolean {
+   let inner = s.slice(s.indexOf("a"), s.indexOf("b") + 1)
+   return inner.indexOf("b") - inner.indexOf("a") == 3
+}
+console.log("threeplaces: ", threeplaces("bcda"), threeplaces("vvannbnnn"), threeplaces("nvdjhscxzab"), threeplaces("abcabcaccb"))
+
+// 54. Write a JavaScript program to count the number of vowels in a given string.
+
+function vowels(s: string): number {
+    // let ss = ""
+    let n = 0
+    for (let i = 0; i <= s.length - 1; i ++) {
+        if (s[i] == "a" || s[i] == "e" || s[i] == "i" || s[i] == "o" || s[i] == "u" 
+            || s[i] == "A" || s[i] == "E" || s[i] == "I" || s[i] == "O" || s[i] == "U")
+            // ss = ss + s[i]
+            n = n + 1 
+    } 
+    return n
+    
+    return s.split("").filter(char =>
+        "aeiuo".indexOf(char.toUpperCase()) != -1
+    ).length
+
+    return s.split("").filter(char => {
+        let b = char.toLowerCase()
+        return b == "a" || b == "e" || b == "i" || b == "o" || b == "u"
+    }).length
+
+    return s.split("").filter(a => 
+        a == "a" || a == "e" || a == "i" || a == "o" || a == "u" 
+        || a == "A" || a == "E" || a == "I" || a == "O" || a == "U"
+    ).length
+}
+console.log("vowels: ", vowels("bananeinour"), vowels("wert,.;yuytgfdcvbnmkiuytredsdfg"))
+
+// 55. Write a JavaScript program to check whether a given string contains equal number of p's and t's.
+
+function psnts(s: string): Boolean {
+   let ps = s.split("").filter(a => a == "p")
+   let ts = s.split("").filter(a => a == "t")
+
+   if (ps.length == ts.length) return true
+   else return false
+}
+console.log("psnts: ", psnts("tstststs"), psnts("ulbroka"), psnts("rintipnptins"))
+
+
+// > "abc def ghi jkl mno".split(' ').map((thing, index) => index)
+// [ 0, 1, 2, 3, 4 ]
+// > "abc def ghi jkl mno".split(' ').filter((thing, index) => index % 2 == 1)
+// [ 'def', 'jkl' ]
 
 // // https://stackoverflow.com/a/23555773
 // // [1,2] == [1,2]   ===>   false
