@@ -20,7 +20,7 @@ function f(x: number, y: number): number {
 // console.log("f calls:", f(5, 9), f(8, 4))
 
 function sum(ns: Array<number>): number {
-    let s = 0   
+    let s = 0
     ns.forEach(n => s = s + n)
     return s
 }

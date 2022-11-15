@@ -482,34 +482,3 @@ function psnts(s: string): Boolean {
 console.log("psnts: ", psnts("tstststs"), psnts("ulbroka"), psnts("rintipnptins"))
 
 
-// > "abc def ghi jkl mno".split(' ').map((thing, index) => index)
-// [ 0, 1, 2, 3, 4 ]
-// > "abc def ghi jkl mno".split(' ').filter((thing, index) => index % 2 == 1)
-// [ 'def', 'jkl' ]
-
-// // https://stackoverflow.com/a/23555773
-// // [1,2] == [1,2]   ===>   false
-// // JSON.stringify(a1) === JSON.stringify(a2)
-
-// // fill(3, 3) = [3, 3, 3]
-// // fill(5, 5) = [5, 5, 5, 5, 5]
-// function fill<A>(n: number, a: A): Array<A> {
-//     return []
-// }
-// console.log(
-//     'fill:',
-//     JSON.stringify(fill(5, 5)) == JSON.stringify([5, 5, 5, 5, 5]),
-//     JSON.stringify(fill<string>(3, "x")) == JSON.stringify(["x", "x", "x"])
-// )
-
-// // fillSquare(5) = [[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5],[5,5,5,5,5]]
-// function fillSquare(n: number): Array<Array<number>> {
-//     return [[]]
-// }
-
-// //evenList(8) = [16, 14, 12, 10, 8]
-// //evenList(7) = [14, 12, 10, 8]
-// //evenList(6) = [12, 10, 8, 6]
-// //evenList(5) = [10, 8, 6]
-// function evenList(n: number): Array<number> {
-//     return []
