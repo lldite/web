@@ -263,3 +263,207 @@ console.log("sumpozorneg: ", JSON.stringify(sumpozorneg([0, 7, -3, 4])) == JSON.
 // undefined
 // > if (false) { console.log('a'); console.log('b') }
 // undefined
+
+// Sadalīt poz un neg vērtības pa listiem vienā listā
+
+function twoarrays(a: Array<number>): [Array<number>, Array<number>] {
+    let poz = []
+    let neg = []
+    for (let i = 0; i <= a.length - 1; i++) {
+        if (a[i] >= 0) poz.push(a[i])
+        else neg.push(a[i])
+    }
+    return [poz, neg]
+
+    // a.forEach(n => {
+    //     if (n >= 0) poz.push(n) 
+    //     else neg.push(n)
+    // }
+    // )
+    // return [poz, neg]
+
+    return a.reduce((x, y) => {
+        if (y >= 0) return [x[0].concat([y]), x[1]]
+        else return [x[0], x[1].concat([y])]
+    }, [[], []])
+}
+console.log("twoarrays: ", JSON.stringify(twoarrays([1, 8, 3, -7, 0, -7])) == JSON.stringify([[1, 8, 3, 0], [-7, -7]]))
+
+// Return the length of the array
+// List() -> 0
+// List(1, 2) -> 2
+// List(5, 4, 1, 9) -> 4
+// List(6) -> 1
+// List(1, 5, 2, 0, -1) -> 5
+// count
+
+function count(a: Array<number>): number {
+    return a.reduce((count, item) => count + 1, 0)
+
+    // let n = 0
+    // a.forEach(a => n = n +1)
+    // return n
+
+    // let n = 0
+    // for (let i = 1; i <= a.length; i++) {
+    //     n = n + 1
+    // } 
+    // return n
+}
+console.log("count: ", count([1, 2, 2, 2]) == 4, count([-89, 0, 7, 101, -11]) == 5)
+// List() = -100
+// List(1) = 1
+// List(-5) = -100
+// List(-5, -7) = -100
+// List(1, 0) = 1
+// List(1, 1) = 1
+// List(1, 2) = 1
+// List(1, -7) = -7
+// List(1, -7, -9) = -7
+// List(1, -7, -5) = -7
+// List(1, -7, 4) = 4
+// List(1, -7, 4, 5) = 4
+// List(1, -7, 4, -4) = -4
+// List(1, -7, 4, -5) = -5
+// List(1, -7, 4, -6) = -6
+// flip flop
+
+function flipflop(a: Array<number>): number {
+    return a.reduce((acc, item) => {
+        if ((item < 0 && acc < 0) || (item >= 0 && acc >= 0)) return acc
+        else return item
+    }, -100)
+}
+console.log("flipflop: ", flipflop([1, 0]) == 1, flipflop([-5, -7, 1]) == 1, flipflop([-5, -7]) == -100, flipflop([1, -7, 4, -6]) == -6)
+
+// console.log(evenOddList(5), [[1,3,5], [2,4]])
+
+function evenOddList(n: number): [Array<number>, Array<number>] {
+    return Array.from(Array(Math.abs(n) + 1).keys()).slice(1).reduce((acc, item) => {
+        if (item % 2 == 0) return [acc[0].concat([item]), acc[1]]
+        else return [acc[0], acc[1].concat([item])]
+    }, [[], []])
+
+        let even = []
+        let odd = []
+        for(let i = 1; i <= Math.abs(n); i++) {
+            if (i % 2 == 0) even.push(i)
+            else odd.push(i)
+        }
+        return [even, odd]
+}
+console.log("evenoddlist: ", 
+JSON.stringify(evenOddList(5)) == JSON.stringify([[2, 4], [1, 3, 5]]),
+JSON.stringify(evenOddList(-3)) == JSON.stringify([[2], [1, 3]]), 
+JSON.stringify(evenOddList(0)) == JSON.stringify([[], []]))
+
+//Saņemot skaitli n, atgriezt 1 ar n nullēm galā (pieņemsim, ka n <= 10)
+
+function zeros(n: number): number {
+    let z = 1
+    for (let i = 1; i <= n; i++) {
+        z = z * 10
+    } return z
+}
+console.log("zeros: ", zeros(3) == 1000, zeros(5) == 100000)
+
+//Saņemot skaitli n, atgriezt sarakstu ar n tukšiem sarakstiem. 
+//Piemērs: n = 5, rezultāts = [[], [], [], [], []]. 
+
+function emty(n: number): Array<Array<number>> {
+    let a = []
+    let b = []
+    for (let i = 1; i <= n; i ++) {
+        b.push(a)
+    } return b
+} 
+console.log("emty: ", JSON.stringify(emty(3)) == JSON.stringify([[], [], []]), 
+JSON.stringify(emty (5)) == JSON.stringify([[], [], [], [], []]))
+
+//[0, 0, step, -step, 2 * step, -2 * step, ...]; end = 6, step = 2 => [0, 0, 2,-2, 4, -4]
+
+function stepend(end: number, step: number): Array<number> {
+    if (step == 0) return [] 
+    let a = []
+    for (let i: number = 0; i < end; i = i + step) {
+        a.push(i, -i) 
+    } 
+    return a
+    
+    for (let i = 0; i < end; i++) {
+        if (i % step == 0) a.push(i, -i) 
+    }
+    return a
+} 
+console.log("stepend: ", 
+JSON.stringify(stepend(5, 2)) == JSON.stringify([ 0, -0, 2, -2, 4, -4 ]), 
+JSON.stringify(stepend(10, 0)) == JSON.stringify([]),
+JSON.stringify(stepend(10, 1)) == JSON.stringify([0, -0,  1, -1,  2, -2,  3, -3,  4, -4,  5, -5,  6, -6, 7, -7,  8, -8,  9, -9]),
+JSON.stringify(stepend(30, 7)) == JSON.stringify([0, -0, 7, -7, 14, -14, 21, -21, 28, -28]))
+
+//a = [5, 3, 1] => f(a)= [4, 2, 0]
+function a(aa: Array<number>): Array<number> {
+    let b = []
+    for (let i = 0; i <= aa.length - 1; i++ ) {
+        b.push(aa[i] - 1)
+    } 
+    return b
+    
+    return aa.map(c => c - 1)
+}
+console.log("a: ", JSON.stringify(a([5, 3, 2])) == JSON.stringify([4, 2, 1]),
+JSON.stringify(a([9, 0, -3])) == JSON.stringify([8, -1, -4]))
+
+//Saņemot masīvu ar skaitļiem ns (short for numbers), pieskaiti katram skaitlim visa masīva ns sumu un atgriezt to. 
+//Piemērs: f([6, 8, 1, -2]) = [19, 21, 14, 11]. 
+//“ns” saturam jāpaliek tādam pašam! 
+//Iepriekšējo uzdevumu funkcijas drīkst izmantot.
+
+function plusum(a: Array<number>): Array<number> {
+    let sum = a.reduce((c, b) => c + b)
+    let na =[]
+    for (let i = 0; i <= a.length - 1; i++) {
+        na.push(a[i] + sum)
+    }
+    return na
+}
+console.log("plusum: ", JSON.stringify(plusum([1, 2, 3])) == JSON.stringify([7, 8, 9])),
+JSON.stringify(plusum([6, 8, 1, -2])) == JSON.stringify([19, 21, 14, 11])
+
+//Saņemot masīvu ar skaitļiem ns, liec tos jaunā masīva sākumā, ja tie ir negatīvi, bet beigās, ja tie ir pozitīvi. 
+//Atgriez jauno masīvu. Piemērs: [5, -7, 4, 3, -1] => [-1, -7, 5, 4, 3].
+//https://stackoverflow.com/questions/586182/how-to-insert-an-item-into-an-array-at-a-specific-index-javascript 
+
+function arrange(a: Array<number>): Array<number> {
+    let aa = a.reduce((acc: Array<Array<number>>, item: number) => {
+        if (item < 0) return [acc[0], acc[1].concat([item])]
+        else return [acc[0].concat([item]), acc[1]]
+    },[[],[]])
+    let newarray = aa[1].concat(aa[0])
+    return newarray
+
+    
+    let pos = []
+    let neg = []
+    for (let i = 0; i <= a.length - 1; i++) {
+        if(a[i] < 0) neg.push(a[i])
+        else pos.push(a[i])
+    }
+    return neg.concat(pos)
+} 
+console.log("arrange: ", JSON.stringify(arrange([5, -7, 4, 3, -1])) == JSON.stringify([-7, -1, 5, 4, 3]), 
+JSON.stringify(arrange([0, 0, 9, -5, 4, 1, -10])) == JSON.stringify([-5, -10, 0, 0, 9, 4, 1]))
+
+//Saņemot masīvu ar skaitļiem, sasummē un atgriez visu skaitļu summu no labās puses. 
+//Piemērs: [5, 6, 0, 7, 6] => 24.
+function right(a: Array<number>): number {
+    let flip = a.reverse()
+    return flip.reduce((b, c) => b + c)
+    
+    let sum = 0
+    for (let i = a.length - 1; i >= 0; i--) {
+        sum = sum + a[i] 
+    }
+    return sum
+}
+console.log("right: ", JSON.stringify(right([5, 6, 0, 7, 6])) == JSON.stringify(24))
