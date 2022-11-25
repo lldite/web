@@ -7,4 +7,4 @@
     npx ts-node -i # interaktīvais
 
 2022-06-12-typescript/2022-11-05-canvas:
-    npx tsc index.ts
+    npx tsc -w index.ts
