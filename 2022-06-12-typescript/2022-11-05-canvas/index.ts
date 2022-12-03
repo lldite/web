@@ -95,3 +95,12 @@ function gradientBoard(n: number, size: number, gaps: number = 0): void {
     }
 }
 gradientBoard(250, 15, 2)
+
+function movingRects(): void {
+    let w = 100
+    setInterval(() => {
+        ctx.fillRect(0 + w, 0 + w, 100, 100)
+        w = w + 5
+    }, 100)
+}
+// movingRects()

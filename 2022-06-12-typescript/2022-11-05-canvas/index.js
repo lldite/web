@@ -78,3 +78,11 @@ function gradientBoard(n, size, gaps) {
     }
 }
 gradientBoard(250, 15, 2);
+function movingRects() {
+    var w = 100;
+    setInterval(function () {
+        ctx.fillRect(0 + w, 0 + w, 100, 100);
+        w = w + 5;
+    }, 100);
+}
+// movingRects()
