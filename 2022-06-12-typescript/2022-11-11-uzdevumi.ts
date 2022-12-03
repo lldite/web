@@ -467,3 +467,150 @@ function right(a: Array<number>): number {
     return sum
 }
 console.log("right: ", JSON.stringify(right([5, 6, 0, 7, 6])) == JSON.stringify(24))
+
+//Saņemot masīvu ar skaitļiem, sasummē un atgriez visu skaitļu summu no labās puses, :1057:36)
+//bet beidz summēt (apstādinot ciklu ar apgalvojumu “break”), ja skaitlis ir mazāks par 1. 
+//Piemērs: [5, 6, 0, 7, 6] => 13. https://www.w3schools.com/js/js_break.asp 
+
+function one(a: Array<number>): number {
+    let sum = 0
+    for (let i = a.length - 1; i >= 0; i--) {
+        if (a[i] >= 1) sum = sum + a[i] 
+        else break
+    }
+    return sum
+} 
+console.log("one: ", JSON.stringify(one([0, 3, 2, 2])) == JSON.stringify((7)), 
+JSON.stringify(one([3, -5, 4])) == JSON.stringify(4), 
+JSON.stringify(one([0, 0])) == JSON.stringify(0), 
+JSON.stringify(one([3, 2, 1, 0])) == JSON.stringify(0))
+
+//atrodi lielāko skaitli sarakstā
+
+function bigest(a: Array<number>): number {
+    let aa = a[0]
+    for (let i = 0; i <= a.length - 1; i++) {
+        if(a[i] >= aa) aa = a[i]
+    }
+    return aa
+    return a.reduce((acc, item) => {
+    if (item > acc) return item
+    else return acc
+}, 0)
+}
+console.log("bigest: ", JSON.stringify(bigest([2, 6, 4])) == JSON.stringify(6), 
+JSON.stringify(bigest([-9, 1, 0, 6, -15])) == JSON.stringify(6))
+
+// Uztaisi 2d sarakstu no skaitļiem n, m tā lai visos būtu nulles
+// outputā vajag būt n * m lielam masīvam, pildītam ar ar nullēm
+// priekš replaceZero(2, 3) sanāk [[0, 0], [0, 0], [0, 0]]
+// priekš replaceZero(4, 2) sanāk [[0, 0, 0, 0], [0, 0, 0, 0]]
+
+function zeeros(n: number, m: number): Array<number> {
+    let na = []
+    let ba = []
+    for (let i = 1; i <= n; i++) {
+        na.push(0)
+    }
+    for ( let i = 1; i <= m; i++) {
+        ba.push(na)
+    } 
+    return ba
+}
+console.log("zeeros: ", JSON.stringify(zeeros(2, 3)) == JSON.stringify([[0, 0], [0, 0], [0, 0]]), 
+JSON.stringify(zeeros(4, 2)) == JSON.stringify([[0, 0, 0, 0], [0, 0, 0, 0]]))
+
+// replaceIdx([0, 0, 0, 0, 0], 2, 5) = [0, 0, 5, 0, 0]
+
+function replindx(a: Array<number>, n: number, nn: number): Array<number> {
+    return a.reduce((acc, item, index) => {
+       if (index == n) return acc.concat([nn])
+       else return acc.concat([item])
+    },[])
+    
+    for (let i = 0; i <= a.length - 1; i++) {
+        if (i == n) a[i] = nn
+    }
+    return a
+    
+    a.splice(n, 0, nn)
+    return a
+} 
+console.log("replindx: ", JSON.stringify(replindx([0, 0, 0, 0, 0], 2, 5)) == JSON.stringify([0, 0, 5, 0, 0]))
+
+// Sum to n
+
+function sumton(n: number): number {
+    let a = Array.from(Array(n + 1).keys())
+    return a.reduce((a, b) => a + b)
+}
+console.log("sumton: ", sumton(5))
+
+//(Sarežģīts, jāizmanto ir gan splice, gan break.) 
+//Saņemot masīvu ar skaitļiem ns, izveido jaunu masīvu un skaitļus no ns liec jaunajā masīvā pa vienam, 
+//liekot jauno tieši pirms pirmā lielākā skaitļa salīdzinot ar esošo (no kreisās puses). 
+
+function order(a: Array<number>): Array<number> {
+    
+    let newa = []
+    for (let i = 0; i <= a.length - 1; i++) {
+        let smallest = i
+        for (let j = smallest; j <= a.length - 1; j++) {
+            if (a[j] <= a[smallest]) smallest = j
+        }
+        newa.push(a[smallest])
+        const tmp = a[smallest]
+        a[smallest] = a[i]
+        a[i] = tmp
+    }
+    return newa
+    
+    a.sort()
+    return a
+
+    let na = []
+    for (let i = 0; i < a.length; i++) {
+        for (let j = i; j < a.length; j++) {
+            if (a[i] > a[j]) {
+            let temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+            }
+        }
+    na.push(a[i])
+  }
+  return na
+
+    for (let i = a.length - 1; i >= 0; i--) {
+        for (let j = i; j >= 0; j--) {
+            if (a[i] < a[j]) {
+                let temp = a[i]
+                a[i] = a[j]
+                a[j] = temp
+                }
+            }
+    }
+    return a
+}   
+    
+console.log("order: ", order([8, 5, 1, 9]))
+
+//atriez sarakstu bez lielākā skaitļa 
+
+function nobig(a: Array<number>): Array<number> {
+    let biggest = a.reduce((acc, item) => {
+        if (item > acc) return item
+        else return acc
+    }, 0)
+    return a.splice(a[biggest],1)
+
+    // let biggest = []
+    //  let na =[]
+    //  for (let i = 0; i <= a.length - 1; i++) {
+    //    if (a[i] >= na[0]) biggest.push(a[i])
+    //    else na.push(a[i])
+    // }
+    // return na
+}
+console.log("nobig: ", nobig([4,9,0,10,7]))
+
