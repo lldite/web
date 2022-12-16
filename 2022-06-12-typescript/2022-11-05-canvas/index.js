@@ -66,6 +66,51 @@ function chessBoard(n) {
     }
 }
 // chessBoard(8)
+function chessBoard2(n, size, start) {
+    // ctx.fillStyle = "black"
+    // ctx.fillRect(0, 0, size, size)
+    // ctx.fillStyle = "yellow"
+    // ctx.fillRect(0 + size * 1, 0, size, size)
+    // ctx.fillStyle = "black"
+    // ctx.fillRect(0 + size * 2, 0, size, size)
+    // ctx.fillStyle = "yellow"
+    // ctx.fillRect(0 + size * 3, 0, size, size)
+    // ctx.fillStyle = "yellow"
+    // ctx.fillRect(0, 0 + size, size, size)
+    // ctx.fillStyle = "black"
+    // ctx.fillRect(0 + size * 1, 0 + size, size, size)
+    // ctx.fillStyle = "yellow"
+    // ctx.fillRect(0 + size * 2, 0 + size, size, size)
+    // ctx.fillStyle = "black"
+    // ctx.fillRect(0 + size * 3, 0 + size, size, size)
+    // for (let i = 0; i < n; i++){
+    //     for (let j = 0; j < n; j++){
+    //         if ((i + j) % 2 == 0) {
+    //             ctx.fillStyle = "black"
+    //         } else {
+    //             ctx.fillStyle = "yellow"
+    //         }
+    //         ctx.fillRect(start + size * i, start + size * j, size, size)
+    //     }
+    // }
+    // cita sintakse: 
+    // for (let i = 0; i < n; i++){
+    //     for (let j = 0; j < n; j++){
+    //         ctx.fillStyle = ((i + j) % 2 == 0) ? "black" : " yellow"
+    //         ctx.fillRect(start + size * i, start + size * j, size, size)
+    //     }
+    // }
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j < n; j++) {
+            //ctx.fillStyle = "rgb(0,0,0)"
+            //let greyness = (i + j) * 5
+            var greyness = Math.floor(((i + j) / (n + n)) * 255);
+            ctx.fillStyle = "rgb(".concat(greyness, ", ").concat(greyness, ", ").concat(greyness, ")");
+            ctx.fillRect(start + size * i, start + size * j, size, size);
+        }
+    }
+}
+chessBoard2(23, 20, 0);
 function gradientBoard(n, size, gaps) {
     if (gaps === void 0) { gaps = 0; }
     for (var i = 1; i <= n; i++) {
@@ -77,7 +122,7 @@ function gradientBoard(n, size, gaps) {
         }
     }
 }
-gradientBoard(250, 15, 2);
+// gradientBoard(50, 15, 2)
 function movingRects() {
     var w = 100;
     setInterval(function () {
@@ -86,3 +131,209 @@ function movingRects() {
     }, 100);
 }
 // movingRects()
+function klucInAkluc(n, size, gap) {
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j < n; j++) {
+            ctx.fillStyle = "black";
+            ctx.fillRect(size * j, size * i, size - gap, size - gap);
+        }
+    }
+    // let a = Array.from(Array(n).keys())
+    // for (let i = 0; i <= n - 1; i++) {
+    //     a.map(item => {
+    //         ctx.fillStyle = "black"
+    //         ctx.fillRect(size * item, size * i, size - gap, size - gap)
+    //     })
+    // }
+}
+// klucInAkluc(4, 80, 10)
+function klucRamis(n, size, gap) {
+    // for (let i = 0; i < n; i ++){
+    //     ctx.fillStyle = "black"
+    //     ctx.fillRect(size * i, size - size, size - gap, size - gap)
+    //     ctx.fillRect(size - size, size * i, size - gap, size - gap)
+    //     ctx.fillRect(size * i, size * (n -1), size - gap, size - gap)
+    //     ctx.fillRect(size * (n - 1), size * i, size - gap, size - gap)
+    // }
+    // for (let i = 0; i < n; i++) {
+    //     for (let j = 0; j < n; j++) 
+    //         if (i == 0 || i == n - 1) {
+    //             ctx.fillStyle = "black"
+    //             ctx.fillRect(size * j, size * i, size - gap, size - gap)
+    //         } else {
+    //             if (j == 0 || j == n - 1) {
+    //                 ctx.fillStyle = "black"
+    //                 ctx.fillRect(size * j, size * i, size - gap, size - gap)
+    //             } else {
+    //                 ctx.fillStyle = "white"
+    //                 ctx.fillRect(size * j, size * i, size - gap, size - gap)
+    //             }
+    //         }
+    // }
+    var a = Array.from(Array(n).keys());
+    a.map(function (i) {
+        a.map(function (j) {
+            if (i == 0 || i == n - 1) {
+                ctx.fillStyle = "black";
+                ctx.fillRect(size * j, size * i, size - gap, size - gap);
+            }
+            else {
+                if (j == 0 || j == n - 1) {
+                    ctx.fillStyle = "black";
+                    ctx.fillRect(size * j, size * i, size - gap, size - gap);
+                }
+                else {
+                    ctx.fillStyle = "red";
+                    ctx.fillRect(size * j, size * i, size - gap, size - gap);
+                }
+            }
+        });
+    });
+}
+//klucRamis(4, 60, 10)
+function klucTriangleDownLeft(n, size, gap) {
+    // for (let i = 0; i < n; i++) {
+    //         Array.from(Array(i + 1).keys()).map(item => {
+    //         ctx.fillStyle = "black"
+    //         ctx.fillRect(size * item, size * i, size - gap, size - gap)
+    //     })
+    // }
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j <= i; j++) {
+            ctx.fillStyle = "black";
+            ctx.fillRect(size * j, size * i, size - gap, size - gap);
+        }
+    }
+}
+//klucTriangleDownLeft(4, 60, 10)
+function klucTriangleDownRight(n, size, gap) {
+    var _loop_1 = function (i) {
+        Array.from(Array(i + 1).keys()).map(function (item) {
+            ctx.fillStyle = "black";
+            ctx.fillRect(size * (n - 1 - item), size * i, size - gap, size - gap);
+        });
+    };
+    for (var i = 0; i < n; i++) {
+        _loop_1(i);
+    }
+}
+//klucTriangleDownRight(4, 60, 10)
+function klucTriangleTopRight(n, size, gap) {
+    var _loop_2 = function (i) {
+        Array.from(Array(i + 1).keys()).map(function (item) {
+            ctx.fillStyle = "black";
+            ctx.fillRect(size * i, size * item, size - gap, size - gap);
+        });
+    };
+    for (var i = 0; i < n; i++) {
+        _loop_2(i);
+    }
+}
+//klucTriangleTopRight(4, 60, 10)
+function klucTriangleTopLeft(n, size, gap) {
+    var _loop_3 = function (i) {
+        Array.from(Array(i).keys()).map(function (item) {
+            ctx.fillStyle = "black";
+            ctx.fillRect(size * item, size * (n - i), size - gap, size - gap);
+        });
+    };
+    for (var i = n; i > 0; i--) {
+        _loop_3(i);
+    }
+}
+//klucTriangleTopLeft(4, 60, 10)
+function frame(n, size, topLeft) {
+    for (var i = topLeft; i < n + topLeft; i++) {
+        for (var j = topLeft; j < n + topLeft; j++) {
+            if (i == topLeft || i == n - 1 + topLeft) {
+                ctx.fillStyle = "black";
+                ctx.fillRect(size * j, size * i, size, size);
+            }
+            else {
+                if (j == topLeft || j == n - 1 + topLeft) {
+                    ctx.fillStyle = "black";
+                    ctx.fillRect(size * j, size * i, size, size);
+                }
+                else {
+                    ctx.fillStyle = "white";
+                    ctx.fillRect(size * j, size * i, size, size);
+                }
+            }
+        }
+    }
+}
+function frameInFrame(n, size) {
+    for (var i = n; i >= 1; i = i - 4) {
+        frame(i, size, (n - i) / 2);
+    }
+    // frame(8, 60, 2)
+    // frame(4, 60, 4)
+}
+// frameInFrame(140, 10)
+function kubikInKubik(n, size, start) {
+    // ctx.fillStyle = "red"
+    // ctx.fillRect(start, start, size, size)
+    // ctx.fillStyle = "black"
+    // ctx.fillRect(start + (size/n * 1), 0 + (size/n * 1), size - (2 * (size/n)), size - (2 * (size/n)))
+    // ctx.fillStyle = "red"
+    // ctx.fillRect(start + (size/n * 2), 0 + (size/n * 2), size - (4 * (size/n)), size - (4 * (size/n)))
+    // ctx.fillStyle = "black"
+    // ctx.fillRect(start + (size/n * 3), 0 + (size/n * 3), size - (6 * (size/n)), size - (6 * (size/n)))
+    // ctx.fillStyle = "red"
+    // ctx.fillRect(start + (size/n * 4), 0 + (size/n * 4), size - (8 * (size/n)), size - (8 * (size/n)))
+    // ctx.fillStyle = "black"
+    // ctx.fillRect(start + (size/n * 5), 0 + (size/n * 5), size - (10 * (size/n)), size - (10 * (size/n)))
+    ctx.fillStyle = "black";
+    ctx.fillRect(start, start, size, size);
+    for (var i = 1; i <= n / 2; i++) {
+        if (i % 2 == 0) {
+            ctx.fillStyle = "black";
+            ctx.fillRect(start + (size / n * i), start + (size / n * i), size - (i * 2 * (size / n)), size - (i * 2 * (size / n)));
+        }
+        else {
+            ctx.fillStyle = "red";
+            ctx.fillRect(start + (size / n * i), start + (size / n * i), size - (i * 2 * (size / n)), size - (i * 2 * (size / n)));
+        }
+    }
+}
+//kubikInKubik(15, 200, 100)
+// function klucInAkluc(n: number, size: number): void {
+//     let a = Array.from(Array(n).keys())
+//     for (let i = 0; i < n; i++) {
+//         if (i == 0 || i == n - 1) {
+//             a.map(nn => {
+//                 ctx.fillStyle = "black"
+//                 ctx.fillRect(size * nn, size * nn, size, size)
+//             })
+//         } else {
+//             for (let j = 0; j < n; j++) {
+//                 a.map(nn => {
+//                     if (j == 0 || j == n - 1) {
+//                         ctx.fillStyle = "black"
+//                         ctx.fillRect(size * j, size * i, size, size)
+//                     } else {
+//                         ctx.fillStyle = "white"
+//                         ctx.fillRect(size * j, size * i, size, size)
+//                     }
+//                 })
+//             }
+//         }
+//     }
+// }
+// function klucInAkluc(n: number, size: number, gaps: number = 5): void {
+//     ctx.fillStyle = "black"
+//     // for (let i = 0; i < n; i++) {
+//     //     ctx.fillRect(0, size * i, size - gaps, size - gaps)
+//     //     ctx.fillRect(size * (n - 1), size * i, size - gaps, size - gaps)
+//     //     ctx.fillRect(size * i, 0, size - gaps, size - gaps)
+//     //     ctx.fillRect(size * i, size * (n - 1), size - gaps, size - gaps)
+//     // }
+//     for (let i = 0; i < n; i++) {
+//         for (let j = 0; j < n; j++) {
+//             if (i == 0 || j == 0 || i == n - 1 || j == n - 1) {
+//                 ctx.fillRect(size * j, size * i, size - gaps, size - gaps)
+//             }
+//         }
+//     }
+// }
+// klucInAkluc(80, 13, 2)
