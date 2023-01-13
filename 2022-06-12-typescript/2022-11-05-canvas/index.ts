@@ -48,6 +48,7 @@ function klucEqualDiagonal(n: number): void {
 
 // a is not included in the sum
 // e.g. sumFrom1ToN(5) = 1+2+3+4
+
 function sumFrom1ToN(a: number): number {
     return Array.from(Array(a).keys()).reduce((a, b) => a + b)
 }
@@ -85,30 +86,6 @@ function chessBoard(n: number): void {
 // chessBoard(8)
 
 function chessBoard2(n: number, size: number, start: number): void {
-    // ctx.fillStyle = "black"
-    // ctx.fillRect(0, 0, size, size)
-
-    // ctx.fillStyle = "yellow"
-    // ctx.fillRect(0 + size * 1, 0, size, size)
-
-    // ctx.fillStyle = "black"
-    // ctx.fillRect(0 + size * 2, 0, size, size)
-
-    // ctx.fillStyle = "yellow"
-    // ctx.fillRect(0 + size * 3, 0, size, size)
-
-    // ctx.fillStyle = "yellow"
-    // ctx.fillRect(0, 0 + size, size, size)
-
-    // ctx.fillStyle = "black"
-    // ctx.fillRect(0 + size * 1, 0 + size, size, size)
-
-    // ctx.fillStyle = "yellow"
-    // ctx.fillRect(0 + size * 2, 0 + size, size, size)
-
-    // ctx.fillStyle = "black"
-    // ctx.fillRect(0 + size * 3, 0 + size, size, size)
-
     // for (let i = 0; i < n; i++){
     //     for (let j = 0; j < n; j++){
     //         if ((i + j) % 2 == 0) {
@@ -127,18 +104,19 @@ function chessBoard2(n: number, size: number, start: number): void {
     //         ctx.fillRect(start + size * i, start + size * j, size, size)
     //     }
     // }
-        
-    for (let i = 0; i < n; i++) {
-        for (let j = 0; j < n; j++) {
+
+    for (let i = 0; i <= n; i++) {
+        for (let j = 0; j <= n; j++) {
             //ctx.fillStyle = "rgb(0,0,0)"
             //let greyness = (i + j) * 5
             let greyness = Math.floor(((i + j) / (n + n)) * 255)
-            ctx.fillStyle = `rgb(${greyness}, ${greyness}, ${greyness})`
+            ctx.fillStyle = `rgb(255, ${greyness}, 0)`
+            // ctx.fillStyle = `rgb(${greyness}, ${greyness}, ${greyness})`
             ctx.fillRect(start + size * i, start + size * j, size, size)
         }
     }
 }
-chessBoard2(23, 20, 0)
+// chessBoard2(23, 20, 0)
 
 function gradientBoard(n: number, size: number, gaps: number = 0): void {
     for (let i = 1; i <= n; i++) {
@@ -223,7 +201,7 @@ function klucRamis(n: number, size: number, gap: number): void {
         })
     })
 }
-//klucRamis(4, 60, 10)
+// klucRamis(15, 60, 10)
 
 function klucTriangleDownLeft(n: number, size: number, gap: number): void {
     // for (let i = 0; i < n; i++) {
@@ -260,7 +238,7 @@ function klucTriangleTopRight(n: number, size: number, gap: number): void {
         })
     }
 }
-//klucTriangleTopRight(4, 60, 10)
+// klucTriangleTopRight(4, 60, 10)
 
 function klucTriangleTopLeft(n: number, size: number, gap: number): void {
     for (let i = n; i > 0; i--) {
@@ -270,7 +248,7 @@ function klucTriangleTopLeft(n: number, size: number, gap: number): void {
         })
     }
 }
-//klucTriangleTopLeft(4, 60, 10)
+// klucTriangleTopLeft(10, 60, 10)
 
 function frame(n: number, size: number, topLeft: number): void {
     for (let i = topLeft; i < n + topLeft; i++) {
@@ -320,59 +298,120 @@ function kubikInKubik(n: number, size: number, start: number): void {
     // ctx.fillStyle = "black"
     // ctx.fillRect(start + (size/n * 5), 0 + (size/n * 5), size - (10 * (size/n)), size - (10 * (size/n)))
 
-    ctx.fillStyle = "black"
-    ctx.fillRect(start, start, size, size)
+    // for (let i = 0; i <= n / 2; i++) {
+    //     if (i % 2 == 0) {
+    //         ctx.fillStyle = "black"
+    //     } else {
+    //         ctx.fillStyle = "red"
+    //     }
+    //     ctx.fillRect(start + (size / n * i), start + (size / n * i), size - (i * 2 * (size / n)), size - (i * 2 * (size / n)))
+    // }
 
-    for (let i = 1; i <= n / 2; i++) {
-        if (i % 2 == 0) {
-            ctx.fillStyle = "black"
-            ctx.fillRect(start + (size / n * i), start + (size / n * i), size - (i * 2 * (size / n)), size - (i * 2 * (size / n)))
-        } else {
-            ctx.fillStyle = "red"
-            ctx.fillRect(start + (size / n * i), start + (size / n * i), size - (i * 2 * (size / n)), size - (i * 2 * (size / n)))
-        }
+    // cita sintakse:
+    for (let i = 0; i <= n / 2; i++) {
+        ctx.fillStyle = (i % 2 == 0) ? "#ffa000" : "red"
+        ctx.fillRect(start + (size / n * i), start + (size / n * i), size - (i * 2 * (size / n)), size - (i * 2 * (size / n)))
     }
 }
-//kubikInKubik(15, 200, 100)
+// kubikInKubik(40, 400, 50)
 
-// function klucInAkluc(n: number, size: number): void {
-//     let a = Array.from(Array(n).keys())
-//     for (let i = 0; i < n; i++) {
-//         if (i == 0 || i == n - 1) {
-//             a.map(nn => {
-//                 ctx.fillStyle = "black"
-//                 ctx.fillRect(size * nn, size * nn, size, size)
-//             })
-//         } else {
-//             for (let j = 0; j < n; j++) {
-//                 a.map(nn => {
-//                     if (j == 0 || j == n - 1) {
-//                         ctx.fillStyle = "black"
-//                         ctx.fillRect(size * j, size * i, size, size)
-//                     } else {
-//                         ctx.fillStyle = "white"
-//                         ctx.fillRect(size * j, size * i, size, size)
-//                     }
-//                 })
-//             }
-//         }
-//     }
-// }
+function kubikNextToKubik(n: number, size: number): void {
+    // ctx.fillStyle = "red"
+    // ctx.fillRect(start + size * 0, start + size * 3, size, size)
 
-// function klucInAkluc(n: number, size: number, gaps: number = 5): void {
-//     ctx.fillStyle = "black"
-//     // for (let i = 0; i < n; i++) {
-//     //     ctx.fillRect(0, size * i, size - gaps, size - gaps)
-//     //     ctx.fillRect(size * (n - 1), size * i, size - gaps, size - gaps)
-//     //     ctx.fillRect(size * i, 0, size - gaps, size - gaps)
-//     //     ctx.fillRect(size * i, size * (n - 1), size - gaps, size - gaps)
-//     // }
-//     for (let i = 0; i < n; i++) {
-//         for (let j = 0; j < n; j++) {
-//             if (i == 0 || j == 0 || i == n - 1 || j == n - 1) {
-//                 ctx.fillRect(size * j, size * i, size - gaps, size - gaps)
-//             }
-//         }
-//     }
-// }
-// klucInAkluc(80, 13, 2)
+    // ctx.fillStyle = "red"
+    // ctx.fillRect(start + size * 2, start + size * 2, size * 3, size * 3)
+
+    // ctx.fillStyle = "red"
+    // ctx.fillRect(start + size * 6, start + size * 1, size * 5, size * 5)
+
+    // ctx.fillStyle = "red"
+    // ctx.fillRect(start + size * 12, start * 1, size * 7, size * 7)
+
+    ctx.fillStyle = "red"
+
+    let widths = 0
+    for (let i = 0; i < n; i++) {
+        let width = size * (i * 2 + 1)
+        console.log(widths)
+        ctx.fillRect(
+            widths + i * size,
+            (n - i - 1) * size,
+            width,
+            width,
+        )
+        widths = widths + width
+    }
+}
+// kubikNextToKubik(20, 3)
+
+// 4.1. uzzimē sešus kubikus vienu otram blakus
+function nblakus(n: number, size: number, gap: number): void {
+    for (let i = 0; i < n; i++) {
+        ctx.fillStyle = "black"
+        ctx.fillRect((size + gap) * i, 0, size, size)
+    }
+}
+
+// nblakus(7, 50, 10)
+
+// 4.2. uzzīmē sešus kubikus, katru savā varavīksnes krāsā (izmanto fillStyle = 'hsl(...)')
+function rainbow(n: number, size: [number, number], gap: number, gradient: number, y: number): void {
+    for (let i = 0; i < n; i++) {
+        let color = i * (gradient / n)
+        ctx.fillStyle = "hsl(" + color + "deg 50% 50%)"
+        ctx.fillRect((size[0] + gap) * i, y, size[0], size[1])
+    }
+}
+//rainbow(100, 10, 5, 330, 0)
+
+function rainbowsinarow(n: number, size: number, gap: number, gradient: number): void {
+    for (let i = 0; i < n; i++) {
+        rainbow(n, [size, size], gap, gradient, (gap * i) + size * i)
+    }
+}
+// rainbowsinarow(5, 50, 10, 330)
+
+function manyrainbows(n: number, size: number, gap: number, gradient: number): void {
+    for (let i = 0, m = n; i < n && m >= 1; i++, m = m / 2) {
+        rainbow(m, [size * n / m + gap * (n / m - 1), size], gap, gradient, (gap * i) + size * i)
+    }
+}
+// manyrainbows(32 * 2 * 2, 15, 2, 330)
+
+function rainbowBlocks(n: number, size: number, gap: number, gradient: number): void {
+    for (let i = 0; i < n; i++) {
+        ctx.fillStyle = "red"
+        ctx.fillRect((size + gap) * i, 0, size, size)
+    }
+
+    for (let i = 0; i < n; i = i + 2) {
+        ctx.fillStyle = "orange"
+        ctx.fillRect((size + gap) * i, size + gap, (size * 2) + gap, size)
+    }
+
+    for (let i = 0; i < n; i = i + 3) {
+        ctx.fillStyle = "yellow"
+        ctx.fillRect((size + gap) * i, (size + gap) * 2, (size * 3) + gap, size)
+    }
+}
+//rainbowBlocks(6, 50, 5, 330)
+
+let n = 0
+function drawBlock() {
+  // fillStyle ar transparency
+  // uztaisi, ka klucīši zīmējas viens otram virsū, bet lielāki
+  ctx.fillRect(50 * n, 50 * n, 50, 50)
+  n = n + 1
+  //console.log(n)
+}
+setInterval(drawBlock, 300) // call drawBlock each second
+
+// ============================ 2023 ============================
+
+// papildu uzdevumi canvas pie tiem, kuri ir jau pierakstīti:
+// 1. drawRects: iztēlojies, ka visus klucīšus šajā tu zīmēsi no viena tupļa [x, y] kā vienu pikseli uz 50x50 pikseļu grida (režģa). tas nozīmē, ka klucītim [2, 3] tu taisīsi fillRect(2*50, 3*50, 50, 50)! uzraksti funkciju, kurai iedodot sarakstu ar klucīšiem kā [x, y] tupļiem priekš 50x50 grid, tā uzzimē visus vajadzīgos klucīšus
+// 2. apskaties vēlreiz to setInterval un saproti, kas notiek. paspēlējies ar tām izmaiņām un saproti, ka setInterval, gluži kā for konstrukcija, vienkārši izsauc to pašu kodu vairākkārt jeb "veido ciklu".
+// 3. uztaisi, ka tev tā setInterval funkcija klucīšus zīmē, bet pirms tam nodzēš veco, radot iespaidu, ka klucītis pārvietojas
+// 4. uztaisi, ka tev ir "atmiņa" ārpus tavas jaunās setInterval funkcijas, kurai iekšā ir tie tupļi/klucīši uz 50x50 režģa. tagad katrā ciklā tava funkcija 1. visus esošos uz ekrāna uzzīmē baltus (tu vari lietot funkciju no 1. uzdevuma drawRects), 2. no saraksta izņem pēdējo lietu un ieliek saraksta sākumā jaunu lietu, kas ir saraksta esošā pirmā lieta tikai +1 abiem x/y, 3. uzzīmē visus melnus (drawRects)
+

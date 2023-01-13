@@ -344,18 +344,18 @@ function evenOddList(n: number): [Array<number>, Array<number>] {
         else return [acc[0], acc[1].concat([item])]
     }, [[], []])
 
-        let even = []
-        let odd = []
-        for(let i = 1; i <= Math.abs(n); i++) {
-            if (i % 2 == 0) even.push(i)
-            else odd.push(i)
-        }
-        return [even, odd]
+    let even = []
+    let odd = []
+    for (let i = 1; i <= Math.abs(n); i++) {
+        if (i % 2 == 0) even.push(i)
+        else odd.push(i)
+    }
+    return [even, odd]
 }
-console.log("evenoddlist: ", 
-JSON.stringify(evenOddList(5)) == JSON.stringify([[2, 4], [1, 3, 5]]),
-JSON.stringify(evenOddList(-3)) == JSON.stringify([[2], [1, 3]]), 
-JSON.stringify(evenOddList(0)) == JSON.stringify([[], []]))
+console.log("evenoddlist: ",
+    JSON.stringify(evenOddList(5)) == JSON.stringify([[2, 4], [1, 3, 5]]),
+    JSON.stringify(evenOddList(-3)) == JSON.stringify([[2], [1, 3]]),
+    JSON.stringify(evenOddList(0)) == JSON.stringify([[], []]))
 
 //Saņemot skaitli n, atgriezt 1 ar n nullēm galā (pieņemsim, ka n <= 10)
 
@@ -373,46 +373,46 @@ console.log("zeros: ", zeros(3) == 1000, zeros(5) == 100000)
 function emty(n: number): Array<Array<number>> {
     let a = []
     let b = []
-    for (let i = 1; i <= n; i ++) {
+    for (let i = 1; i <= n; i++) {
         b.push(a)
     } return b
-} 
-console.log("emty: ", JSON.stringify(emty(3)) == JSON.stringify([[], [], []]), 
-JSON.stringify(emty (5)) == JSON.stringify([[], [], [], [], []]))
+}
+console.log("emty: ", JSON.stringify(emty(3)) == JSON.stringify([[], [], []]),
+    JSON.stringify(emty(5)) == JSON.stringify([[], [], [], [], []]))
 
 //[0, 0, step, -step, 2 * step, -2 * step, ...]; end = 6, step = 2 => [0, 0, 2,-2, 4, -4]
 
 function stepend(end: number, step: number): Array<number> {
-    if (step == 0) return [] 
+    if (step == 0) return []
     let a = []
     for (let i: number = 0; i < end; i = i + step) {
-        a.push(i, -i) 
-    } 
-    return a
-    
-    for (let i = 0; i < end; i++) {
-        if (i % step == 0) a.push(i, -i) 
+        a.push(i, -i)
     }
     return a
-} 
-console.log("stepend: ", 
-JSON.stringify(stepend(5, 2)) == JSON.stringify([ 0, -0, 2, -2, 4, -4 ]), 
-JSON.stringify(stepend(10, 0)) == JSON.stringify([]),
-JSON.stringify(stepend(10, 1)) == JSON.stringify([0, -0,  1, -1,  2, -2,  3, -3,  4, -4,  5, -5,  6, -6, 7, -7,  8, -8,  9, -9]),
-JSON.stringify(stepend(30, 7)) == JSON.stringify([0, -0, 7, -7, 14, -14, 21, -21, 28, -28]))
+
+    for (let i = 0; i < end; i++) {
+        if (i % step == 0) a.push(i, -i)
+    }
+    return a
+}
+console.log("stepend: ",
+    JSON.stringify(stepend(5, 2)) == JSON.stringify([0, -0, 2, -2, 4, -4]),
+    JSON.stringify(stepend(10, 0)) == JSON.stringify([]),
+    JSON.stringify(stepend(10, 1)) == JSON.stringify([0, -0, 1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6, 7, -7, 8, -8, 9, -9]),
+    JSON.stringify(stepend(30, 7)) == JSON.stringify([0, -0, 7, -7, 14, -14, 21, -21, 28, -28]))
 
 //a = [5, 3, 1] => f(a)= [4, 2, 0]
 function a(aa: Array<number>): Array<number> {
     let b = []
-    for (let i = 0; i <= aa.length - 1; i++ ) {
+    for (let i = 0; i <= aa.length - 1; i++) {
         b.push(aa[i] - 1)
-    } 
+    }
     return b
-    
+
     return aa.map(c => c - 1)
 }
 console.log("a: ", JSON.stringify(a([5, 3, 2])) == JSON.stringify([4, 2, 1]),
-JSON.stringify(a([9, 0, -3])) == JSON.stringify([8, -1, -4]))
+    JSON.stringify(a([9, 0, -3])) == JSON.stringify([8, -1, -4]))
 
 //Saņemot masīvu ar skaitļiem ns (short for numbers), pieskaiti katram skaitlim visa masīva ns sumu un atgriezt to. 
 //Piemērs: f([6, 8, 1, -2]) = [19, 21, 14, 11]. 
@@ -421,14 +421,14 @@ JSON.stringify(a([9, 0, -3])) == JSON.stringify([8, -1, -4]))
 
 function plusum(a: Array<number>): Array<number> {
     let sum = a.reduce((c, b) => c + b)
-    let na =[]
+    let na = []
     for (let i = 0; i <= a.length - 1; i++) {
         na.push(a[i] + sum)
     }
     return na
 }
 console.log("plusum: ", JSON.stringify(plusum([1, 2, 3])) == JSON.stringify([7, 8, 9])),
-JSON.stringify(plusum([6, 8, 1, -2])) == JSON.stringify([19, 21, 14, 11])
+    JSON.stringify(plusum([6, 8, 1, -2])) == JSON.stringify([19, 21, 14, 11])
 
 //Saņemot masīvu ar skaitļiem ns, liec tos jaunā masīva sākumā, ja tie ir negatīvi, bet beigās, ja tie ir pozitīvi. 
 //Atgriez jauno masīvu. Piemērs: [5, -7, 4, 3, -1] => [-1, -7, 5, 4, 3].
@@ -438,31 +438,31 @@ function arrange(a: Array<number>): Array<number> {
     let aa = a.reduce((acc: Array<Array<number>>, item: number) => {
         if (item < 0) return [acc[0], acc[1].concat([item])]
         else return [acc[0].concat([item]), acc[1]]
-    },[[],[]])
+    }, [[], []])
     let newarray = aa[1].concat(aa[0])
     return newarray
 
-    
+
     let pos = []
     let neg = []
     for (let i = 0; i <= a.length - 1; i++) {
-        if(a[i] < 0) neg.push(a[i])
+        if (a[i] < 0) neg.push(a[i])
         else pos.push(a[i])
     }
     return neg.concat(pos)
-} 
-console.log("arrange: ", JSON.stringify(arrange([5, -7, 4, 3, -1])) == JSON.stringify([-7, -1, 5, 4, 3]), 
-JSON.stringify(arrange([0, 0, 9, -5, 4, 1, -10])) == JSON.stringify([-5, -10, 0, 0, 9, 4, 1]))
+}
+console.log("arrange: ", JSON.stringify(arrange([5, -7, 4, 3, -1])) == JSON.stringify([-7, -1, 5, 4, 3]),
+    JSON.stringify(arrange([0, 0, 9, -5, 4, 1, -10])) == JSON.stringify([-5, -10, 0, 0, 9, 4, 1]))
 
 //Saņemot masīvu ar skaitļiem, sasummē un atgriez visu skaitļu summu no labās puses. 
 //Piemērs: [5, 6, 0, 7, 6] => 24.
 function right(a: Array<number>): number {
     let flip = a.reverse()
     return flip.reduce((b, c) => b + c)
-    
+
     let sum = 0
     for (let i = a.length - 1; i >= 0; i--) {
-        sum = sum + a[i] 
+        sum = sum + a[i]
     }
     return sum
 }
@@ -475,31 +475,31 @@ console.log("right: ", JSON.stringify(right([5, 6, 0, 7, 6])) == JSON.stringify(
 function one(a: Array<number>): number {
     let sum = 0
     for (let i = a.length - 1; i >= 0; i--) {
-        if (a[i] >= 1) sum = sum + a[i] 
+        if (a[i] >= 1) sum = sum + a[i]
         else break
     }
     return sum
-} 
-console.log("one: ", JSON.stringify(one([0, 3, 2, 2])) == JSON.stringify((7)), 
-JSON.stringify(one([3, -5, 4])) == JSON.stringify(4), 
-JSON.stringify(one([0, 0])) == JSON.stringify(0), 
-JSON.stringify(one([3, 2, 1, 0])) == JSON.stringify(0))
+}
+console.log("one: ", JSON.stringify(one([0, 3, 2, 2])) == JSON.stringify((7)),
+    JSON.stringify(one([3, -5, 4])) == JSON.stringify(4),
+    JSON.stringify(one([0, 0])) == JSON.stringify(0),
+    JSON.stringify(one([3, 2, 1, 0])) == JSON.stringify(0))
 
 //atrodi lielāko skaitli sarakstā
 
 function bigest(a: Array<number>): number {
     let aa = a[0]
     for (let i = 0; i <= a.length - 1; i++) {
-        if(a[i] >= aa) aa = a[i]
+        if (a[i] >= aa) aa = a[i]
     }
     return aa
     return a.reduce((acc, item) => {
-    if (item > acc) return item
-    else return acc
-}, 0)
+        if (item > acc) return item
+        else return acc
+    }, 0)
 }
-console.log("bigest: ", JSON.stringify(bigest([2, 6, 4])) == JSON.stringify(6), 
-JSON.stringify(bigest([-9, 1, 0, 6, -15])) == JSON.stringify(6))
+console.log("bigest: ", JSON.stringify(bigest([2, 6, 4])) == JSON.stringify(6),
+    JSON.stringify(bigest([-9, 1, 0, 6, -15])) == JSON.stringify(6))
 
 // Uztaisi 2d sarakstu no skaitļiem n, m tā lai visos būtu nulles
 // outputā vajag būt n * m lielam masīvam, pildītam ar ar nullēm
@@ -512,30 +512,30 @@ function zeeros(n: number, m: number): Array<number> {
     for (let i = 1; i <= n; i++) {
         na.push(0)
     }
-    for ( let i = 1; i <= m; i++) {
+    for (let i = 1; i <= m; i++) {
         ba.push(na)
-    } 
+    }
     return ba
 }
-console.log("zeeros: ", JSON.stringify(zeeros(2, 3)) == JSON.stringify([[0, 0], [0, 0], [0, 0]]), 
-JSON.stringify(zeeros(4, 2)) == JSON.stringify([[0, 0, 0, 0], [0, 0, 0, 0]]))
+console.log("zeeros: ", JSON.stringify(zeeros(2, 3)) == JSON.stringify([[0, 0], [0, 0], [0, 0]]),
+    JSON.stringify(zeeros(4, 2)) == JSON.stringify([[0, 0, 0, 0], [0, 0, 0, 0]]))
 
 // replaceIdx([0, 0, 0, 0, 0], 2, 5) = [0, 0, 5, 0, 0]
 
 function replindx(a: Array<number>, n: number, nn: number): Array<number> {
     return a.reduce((acc, item, index) => {
-       if (index == n) return acc.concat([nn])
-       else return acc.concat([item])
-    },[])
-    
+        if (index == n) return acc.concat([nn])
+        else return acc.concat([item])
+    }, [])
+
     for (let i = 0; i <= a.length - 1; i++) {
         if (i == n) a[i] = nn
     }
     return a
-    
+
     a.splice(n, 0, nn)
     return a
-} 
+}
 console.log("replindx: ", JSON.stringify(replindx([0, 0, 0, 0, 0], 2, 5)) == JSON.stringify([0, 0, 5, 0, 0]))
 
 // Sum to n
@@ -551,7 +551,7 @@ console.log("sumton: ", sumton(5))
 //liekot jauno tieši pirms pirmā lielākā skaitļa salīdzinot ar esošo (no kreisās puses). 
 
 function order(a: Array<number>): Array<number> {
-    
+
     let newa = []
     for (let i = 0; i <= a.length - 1; i++) {
         let smallest = i
@@ -564,7 +564,7 @@ function order(a: Array<number>): Array<number> {
         a[i] = tmp
     }
     return newa
-    
+
     a.sort()
     return a
 
@@ -572,14 +572,14 @@ function order(a: Array<number>): Array<number> {
     for (let i = 0; i < a.length; i++) {
         for (let j = i; j < a.length; j++) {
             if (a[i] > a[j]) {
-            let temp = a[i];
-            a[i] = a[j];
-            a[j] = temp;
+                let temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
             }
         }
-    na.push(a[i])
-  }
-  return na
+        na.push(a[i])
+    }
+    return na
 
     for (let i = a.length - 1; i >= 0; i--) {
         for (let j = i; j >= 0; j--) {
@@ -587,12 +587,12 @@ function order(a: Array<number>): Array<number> {
                 let temp = a[i]
                 a[i] = a[j]
                 a[j] = temp
-                }
             }
+        }
     }
     return a
-}   
-    
+}
+
 console.log("order: ", order([8, 5, 1, 9]))
 
 //atriez sarakstu bez lielākā skaitļa 
@@ -602,7 +602,7 @@ function nobig(a: Array<number>): Array<number> {
         if (item > acc) return item
         else return acc
     }, 0)
-    return a.splice(a[biggest],1)
+    return a.splice(a[biggest], 1)
 
     // let biggest = []
     //  let na =[]
@@ -612,5 +612,48 @@ function nobig(a: Array<number>): Array<number> {
     // }
     // return na
 }
-console.log("nobig: ", nobig([4,9,0,10,7]))
+console.log("nobig: ", nobig([4, 9, 0, 10, 7]))
 
+// uzraksti, ka sarakstam tu nem nost no labas un pec tam kreisas puses lietas pamisus 
+// kamer sarakstā ir zem 5 lietām
+function five(a: Array<number>): Array<number> {
+    for (let i = 0; i < a.length && a.length >= 5; i++) {
+        if (i % 2 == 0) a.pop()
+        else a.shift()
+    }
+    return a
+}
+console.log("five: ", five([1, 2, 3, 4, 5, 6, 7, 8]), five([8, 0, 9, 0, 0]))
+
+// doti: saraksts ar skaitļiem un saraksts ar divu skaitļu tupļiem. 
+// pirmajā sarakstā ir jāizdara modifikācijas no otrā saraksta tupļiem interpretējot tos kā tupļus ar indeksu un vērtību. 
+// f([1,2,3], [[1, -2], [2, -3]]) = [1,-2,-3]
+
+// modifs netiek izmainīts
+// abos variantos funkcija (vai for kods) tiek izpildīts modifs.length reizes
+// forā "modifs[i]" ir tas pats, kas forEachā "modif"
+function indexValue(a: Array<number>, modifs: Array<[number, number]>): Array<number> {
+    // for (let i = 0; i < modifs.length; i++) {
+    //     a.splice(modifs[i][0], 1, modifs[i][1])
+    // }
+    modifs.forEach(modif =>
+        a.splice(modif[0], 1, modif[1])
+    )
+    return a
+}
+console.log(
+    "indexValue: ",
+    indexValue([1, 2, 3], []),
+    indexValue([1, 2, 3], [[2, -3]]),
+    indexValue([1, 2, 3], [[1, -2], [2, -3]]),
+    indexValue([1, 2, 3, 4, 5, 6, 7], [[1, -2], [2, -3], [0, 0], [6, 8], [6, 9]]),
+)
+
+// iepriekšējam uzdevumam uztaisi, ka ja kāds no indeksiem nav intervālā, 
+// tad uztaisi, ka return type ir "Array<number> | string" un tiklīdz ko kā ir kļūda, uzreiz atgriezies no funkcijas un returno stringu "invalid index" kā kļūdas paziņojumu
+// piezīme: "type1 | type2" nozīmē, ka tur var būt viens no diviem tipiem. vai nu tu atgriezīsi veiksmīgu rezultātu vai arī kļūdu
+
+function many(things: Array<number>): void {
+    things.forEach(t => console.log(t))
+}
+many([1, 2, 3, 4, 5])
