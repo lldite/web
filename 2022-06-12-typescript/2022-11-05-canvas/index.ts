@@ -399,13 +399,22 @@ function rainbowBlocks(n: number, size: number, gap: number, gradient: number): 
 
 let n = 0
 function drawBlock() {
-  // fillStyle ar transparency
-  // uztaisi, ka klucīši zīmējas viens otram virsū, bet lielāki
-  ctx.fillRect(50 * n, 50 * n, 50, 50)
-  n = n + 1
-  //console.log(n)
+    // 1. fillStyle ar transparency
+    // 2. uztaisi, ka klucīši zīmējas viens otram virsū, bet lielāki
+    // 3. bet ar transparency
+    // 4. bet ar transparency un hsl mainot krāsu pa varavīksni, piemēram
+
+    // ctx.fillRect(10 * n, 10 * n, 50, 50)
+    // n = n + 1
+    // console.log(n)
+
+    ctx.fillStyle = "hsl(" + (n * 10) + "deg 50% 50% / 0.05 )" //hsl(hue saturation lightness / alpha)
+    ctx.fillRect(800 - (5 * n), 600 - (5 * n), 5 * n * 2, 5 * n * 2)
+    n = n + 1
+    console.log(n)
+
 }
-setInterval(drawBlock, 300) // call drawBlock each second
+// setInterval(drawBlock, 300) // call drawBlock each second
 
 // ============================ 2023 ============================
 

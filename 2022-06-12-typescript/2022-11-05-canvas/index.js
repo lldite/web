@@ -348,10 +348,22 @@ function rainbowBlocks(n, size, gap, gradient) {
 //rainbowBlocks(6, 50, 5, 330)
 var n = 0;
 function drawBlock() {
-    // fillStyle ar transparency
-    // uztaisi, ka klucīši zīmējas viens otram virsū, bet lielāki
-    ctx.fillRect(50 * n, 50 * n, 50, 50);
+    // 1. fillStyle ar transparency
+    // 2. uztaisi, ka klucīši zīmējas viens otram virsū, bet lielāki
+    // 3. bet ar transparency
+    // 4. bet ar transparency un hsl mainot krāsu pa varavīksni, piemēram
+    // ctx.fillRect(10 * n, 10 * n, 50, 50)
+    // n = n + 1
+    // console.log(n)
+    ctx.fillStyle = "hsl(" + (n * 10) + "deg 50% 50% / 0.05 )"; //hsl(hue saturation lightness / alpha)
+    ctx.fillRect(800 - (5 * n), 600 - (5 * n), 5 * n * 2, 5 * n * 2);
     n = n + 1;
-    //console.log(n)
+    console.log(n);
 }
-setInterval(drawBlock, 300); // call drawBlock each second
+// setInterval(drawBlock, 300) // call drawBlock each second
+// ============================ 2023 ============================
+// papildu uzdevumi canvas pie tiem, kuri ir jau pierakstīti:
+// 1. drawRects: iztēlojies, ka visus klucīšus šajā tu zīmēsi no viena tupļa [x, y] kā vienu pikseli uz 50x50 pikseļu grida (režģa). tas nozīmē, ka klucītim [2, 3] tu taisīsi fillRect(2*50, 3*50, 50, 50)! uzraksti funkciju, kurai iedodot sarakstu ar klucīšiem kā [x, y] tupļiem priekš 50x50 grid, tā uzzimē visus vajadzīgos klucīšus
+// 2. apskaties vēlreiz to setInterval un saproti, kas notiek. paspēlējies ar tām izmaiņām un saproti, ka setInterval, gluži kā for konstrukcija, vienkārši izsauc to pašu kodu vairākkārt jeb "veido ciklu".
+// 3. uztaisi, ka tev tā setInterval funkcija klucīšus zīmē, bet pirms tam nodzēš veco, radot iespaidu, ka klucītis pārvietojas
+// 4. uztaisi, ka tev ir "atmiņa" ārpus tavas jaunās setInterval funkcijas, kurai iekšā ir tie tupļi/klucīši uz 50x50 režģa. tagad katrā ciklā tava funkcija 1. visus esošos uz ekrāna uzzīmē baltus (tu vari lietot funkciju no 1. uzdevuma drawRects), 2. no saraksta izņem pēdējo lietu un ieliek saraksta sākumā jaunu lietu, kas ir saraksta esošā pirmā lieta tikai +1 abiem x/y, 3. uzzīmē visus melnus (drawRects)
