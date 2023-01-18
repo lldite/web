@@ -7,6 +7,9 @@ var ctx = canvas.getContext("2d");
 // ctx.fillStyle = "rgba(0, 0, 0, 0.1)" // red, green, blue, alpha (transparency)
 // ctx.fillRect(10, 10, 500, 50) // x of left side of rect, y of left side of rect, width, height
 // ============================
+var reload = 1;
+setTimeout(function () { if (reload == 1)
+    location.reload(); }, 2000);
 function first() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
     ctx.fillRect(10, 10, 500, 50); // x, y, width, height in pixels
@@ -326,8 +329,8 @@ function rainbowsinarow(n, size, gap, gradient) {
 }
 // rainbowsinarow(5, 50, 10, 330)
 function manyrainbows(n, size, gap, gradient) {
-    for (var i = 0, m = n; i < n && m >= 1; i++, m = m / 2) {
-        rainbow(m, [size * n / m + gap * (n / m - 1), size], gap, gradient, (gap * i) + size * i);
+    for (var i = 0, m_1 = n; i < n && m_1 >= 1; i++, m_1 = m_1 / 2) {
+        rainbow(m_1, [size * n / m_1 + gap * (n / m_1 - 1), size], gap, gradient, (gap * i) + size * i);
     }
 }
 // manyrainbows(32 * 2 * 2, 15, 2, 330)
@@ -360,7 +363,18 @@ function drawBlock() {
     n = n + 1;
     console.log(n);
 }
-// setInterval(drawBlock, 300) // call drawBlock each second
+// setInterval(drawBlock, 100) // call drawBlock each second
+var m = 0;
+function animationKubik() {
+    var width = 5, gap = width * 0.1, widthGap = width + gap;
+    ctx.fillStyle = "purple";
+    for (var i = 0; i <= m; i++) {
+        ctx.fillRect(widthGap * m, i * widthGap, width, width);
+    }
+    m = m + 1;
+}
+// reload = 0
+setInterval(animationKubik, 50);
 // ============================ 2023 ============================
 // papildu uzdevumi canvas pie tiem, kuri ir jau pierakstīti:
 // 1. drawRects: iztēlojies, ka visus klucīšus šajā tu zīmēsi no viena tupļa [x, y] kā vienu pikseli uz 50x50 pikseļu grida (režģa). tas nozīmē, ka klucītim [2, 3] tu taisīsi fillRect(2*50, 3*50, 50, 50)! uzraksti funkciju, kurai iedodot sarakstu ar klucīšiem kā [x, y] tupļiem priekš 50x50 grid, tā uzzimē visus vajadzīgos klucīšus

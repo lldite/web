@@ -13,6 +13,9 @@ const ctx = canvas.getContext("2d")
 
 // ============================
 
+let reload = 1
+setTimeout(() => { if (reload == 1) location.reload() }, 2000)
+
 function first(): void {
     ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
     ctx.fillRect(10, 10, 500, 50) // x, y, width, height in pixels
@@ -414,7 +417,19 @@ function drawBlock() {
     console.log(n)
 
 }
-// setInterval(drawBlock, 300) // call drawBlock each second
+// setInterval(drawBlock, 100) // call drawBlock each second
+
+let m = 0
+function animationKubik() {
+    let width = 5, gap = width * 0.1, widthGap = width + gap
+    ctx.fillStyle = "purple"
+    for (let i = 0; i <= m; i++) {
+        ctx.fillRect(widthGap * m, i * widthGap, width, width)
+    }
+    m = m + 1
+}
+// reload = 0
+setInterval(animationKubik, 50)
 
 // ============================ 2023 ============================
 
@@ -423,4 +438,3 @@ function drawBlock() {
 // 2. apskaties vēlreiz to setInterval un saproti, kas notiek. paspēlējies ar tām izmaiņām un saproti, ka setInterval, gluži kā for konstrukcija, vienkārši izsauc to pašu kodu vairākkārt jeb "veido ciklu".
 // 3. uztaisi, ka tev tā setInterval funkcija klucīšus zīmē, bet pirms tam nodzēš veco, radot iespaidu, ka klucītis pārvietojas
 // 4. uztaisi, ka tev ir "atmiņa" ārpus tavas jaunās setInterval funkcijas, kurai iekšā ir tie tupļi/klucīši uz 50x50 režģa. tagad katrā ciklā tava funkcija 1. visus esošos uz ekrāna uzzīmē baltus (tu vari lietot funkciju no 1. uzdevuma drawRects), 2. no saraksta izņem pēdējo lietu un ieliek saraksta sākumā jaunu lietu, kas ir saraksta esošā pirmā lieta tikai +1 abiem x/y, 3. uzzīmē visus melnus (drawRects)
-
