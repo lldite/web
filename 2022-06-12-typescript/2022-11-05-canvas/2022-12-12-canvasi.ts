@@ -428,8 +428,14 @@ function animationKubik() {
     }
     m = m + 1
 }
-// reload = 0
-setInterval(animationKubik, 50)
+reload = 0
+setInterval(animationKubik, 100)
+document.addEventListener('keydown', event => {
+    // console.log(event.key)
+    if (event.key == 'Enter')
+        m += 1
+})
+// https://www.google.com/search?q=clear+canvas+js
 
 // ============================ 2023 ============================
 
