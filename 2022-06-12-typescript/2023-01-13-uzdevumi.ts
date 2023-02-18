@@ -103,3 +103,26 @@ console.log(
     JSON.stringify(tuuplsum(5)) == JSON.stringify([[1, 1, 3, 8], [1, 2, 5]]),
     JSON.stringify(tuuplsum(8)) == JSON.stringify([[1, 1, 3, 8, 21], [1, 2, 5, 13, 34]])
 )
+
+//> 'abcABC012'.split('').map(c => c.charCodeAt(0))
+// [97, 98, 99, 65, 66, 67, 48, 49, 50]
+// > [97, 98, 99, 65, 66, 67, 48, 49, 50].map(n => String.fromCharCode(n))
+// ['a', 'b', 'c', 'A', 'B', 'C', '0', '1', '2']
+
+function tostring(n: number): string {
+    let sign = n >= 0 ? "" : "-"
+    n = Math.abs(n)         
+    let s = ''
+    for (; n != 0 || s == ''; n = Math.floor(n / 10)) {
+        const a = n % 10
+        // if (a == 0) s = String.fromCharCode(48 + 0) + s
+        // if (a == 1) s = String.fromCharCode(48 + 1) + s
+        // if (a == 2) s = String.fromCharCode(48 + 2) + s
+        // if (a == 3) s = String.fromCharCode(48 + 3) + s
+        // ... if (a == n) s = String.fromCharCode(48 + n) + s
+
+        s = String.fromCharCode(48 + a) + s
+    }
+    return sign + s
+}
+console.log("tostring: ", tostring(0), tostring(3), tostring(135), tostring(-246))
