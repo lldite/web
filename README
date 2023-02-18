@@ -1,13 +1,13 @@
-2022-05-28-react:
-    npm start
+// 2022-05-28-react:
+//     npm start
 
-2022-06-12-typescript:
-    npx ts-node fails.ts
-    vai
-    npx ts-node -i # interaktīvais
+// 2022-06-12-typescript:
+//     npx ts-node fails.ts
+//     vai
+//     npx ts-node -i # interaktīvais
 
-2022-06-12-typescript/2022-11-05-canvas:
-    npx tsc -w index.ts
+// 2022-06-12-typescript/2022-11-05-canvas:
+//     npx tsc -w *ts
 
 -------------
 
@@ -28,12 +28,6 @@ fillStyle = 'hsl(...)'
 6. uzzīmē aplīšus vairākus pēc dokumentācijas https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
 
 7. lieto šo piemēru lai zīmētu klucīšus, kuri bīdās
-let n = 0
-function drawBlock() {
-  // fillRect ar n
-  n = n + 1
-}
-setInterval(drawBlock, 1000) // call drawBlock each second
 // uztaisi, ka zīmē klucīšus daudz, kuri iet pa diagonāli un nepārklājas (vai pārklājas)
 
 ~ tas 5., 6., 7. ir jaunas tehnikas
