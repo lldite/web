@@ -40,12 +40,20 @@ document.addEventListener('keydown', function (event) {
     if (event.key == "s")
         arrow = 's';
     if (event.key == ",")
-        speed = speed - 1;
+        speed = speed * 0.83;
     if (event.key == ".")
-        speed = speed + 1;
+        speed = speed * 1.2;
     console.log(event.key, arrow);
 });
 render();
 // setInterval(f, t) = ik pēc t ms no šī brīža izpildi f
 // setInterval(tick, 100)
 setInterval(function () { tick(); }, 100);
+// feature requests:
+// 1. the dot doesn't move outside of the field (field size = window.innerWidth / size)
+// 1.1. option 1: if (!outside) point = newPoint
+// 1.2. option 2: pointX = min(maxSizeX, max(0, newPointX))
+// 2. don't let use negative speed or speed that's too small in case we're multiplying
+// 2. note: use (speed = max(0, newSpeed))
+// 3. allow making the dot bigger with "o" and "p"
+// 4. change the colors to something different just for fun
