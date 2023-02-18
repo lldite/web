@@ -10,29 +10,29 @@ const ctx = canvas.getContext("2d")
 //
 
 type Coord = [number, number]
-type Direction = 'ne' | 'se' | 'sw' | 'nw'
+type Direction = 'n' | 's' | 'e' | 'w'
 
 let point: Coord = [5, 5]
-let arrow: Direction = 'se'
-// let compass: number = 0 // 0: diagonal; 1: vertical / horizontal
+let arrow: Direction = 'e'
+let speed: number = 2
 
 function render(): void {
     let size = 10
     ctx.fillRect(size * point[0], size * point[1], size, size)
 }
 
-function directionToCoord(d: Direction): Coord {
-    if (d == 'ne') return [2, -2]
-    else if (d == 'se') return [2, 2]
-    else if (d == 'sw') return [-2, 2]
-    else if (d == 'nw') return [-2, -2]
+function directionToCoord(d: Direction, delta: number = 3): Coord {
+    if (d == 'n') return [0, - delta]
+    else if (d == 's') return [0, delta]
+    else if (d == 'e') return [delta, 0]
+    else if (d == 'w') return [- delta, 0]
 }
 
 function tick(): void {
     ctx.fillStyle = "#ccc"
     render()
 
-    let arrowC: Coord = directionToCoord(arrow)
+    let arrowC: Coord = directionToCoord(arrow, speed)
     point = [point[0] + arrowC[0], point[1] + arrowC[1]]
 
     ctx.fillStyle = "black"
@@ -41,11 +41,15 @@ function tick(): void {
 
 document.addEventListener('keydown', (event) => {
     // let arrow: Direction = 'se' // bad
-    if (event.key == "w") arrow = 'ne'
-    if (event.key == "d") arrow = 'se'
-    if (event.key == "a") arrow = 'nw'
-    if (event.key == "s") arrow = 'sw'
-    console.log(arrow)
+    if (event.key == "w") arrow = 'n'
+    if (event.key == "d") arrow = 'e'
+    if (event.key == "a") arrow = 'w'
+    if (event.key == "s") arrow = 's'
+
+    if (event.key == ",") speed = speed - 1
+    if (event.key == ".") speed = speed + 1
+
+    console.log(event.key, arrow)
 })
 
 render()
