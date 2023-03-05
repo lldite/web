@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #app {
+        display: flex;
+        height: 400px;
+      }
+      #app > div {
+        flex-basis: 0;
+        flex-grow: 1;
+        display: flex;
+        padding: 1em;
+      }
+      #pirmais {
+        background-color: plum;
+      }
+      #otrais {
+        background-color: palegoldenrod;
+      }
+      #app > div > div {
+        flex-grow: 1;
+        height: 2em;
+        margin: 0.5em;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="pirmais"></div>
+      <div id="otrais"></div>
+    </div>
+    <script src="./2023-03-04-kubiki.js"></script>
+  </body>
+</html>
