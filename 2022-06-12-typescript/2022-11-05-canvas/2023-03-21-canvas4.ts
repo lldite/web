@@ -41,7 +41,7 @@ function moveKubik(): void {
 }
 //moveKubik()
 
-function moveKubiki(): void {
+function moveKubikiThree(): void {
   let size: number = 50
   let step: number = 1
   let direction = [step, 0]
@@ -73,5 +73,37 @@ function moveKubiki(): void {
     if (event.key == " ") direction = [0, 0]
   })
 }
+// moveKubikiThree()
 
-moveKubiki()
+function moveKubikiArray(): void {
+  let size: number = 50
+  let step: number = 1
+  let direction = [step, 0]
+  let positionS: Array<[number, number]> = [
+    [100, 100],
+    [200, 200],
+  ]
+
+  setInterval(() => {
+    positionS.forEach((position) => {
+      ctx.fillStyle = "white"
+      ctx?.fillRect(position[0], position[1], size, size)
+
+      position[0] = position[0] + direction[0]
+      position[1] = position[1] + direction[1]
+
+      ctx.fillStyle = "black"
+      ctx?.fillRect(position[0], position[1], size, size)
+    })
+  }, 10)
+
+  addEventListener("keydown", (event) => {
+    if (event.key == "w") direction = [0, -step]
+    if (event.key == "s") direction = [0, step]
+    if (event.key == "a") direction = [-step, 0]
+    if (event.key == "d") direction = [step, 0]
+    if (event.key == " ") direction = [0, 0]
+    if (event.key == "Enter") positionS.push([0, 0])
+  })
+}
+moveKubikiArray()

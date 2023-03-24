@@ -41,7 +41,7 @@ function moveKubik() {
     });
 }
 //moveKubik()
-function moveKubiki() {
+function moveKubikiThree() {
     var size = 50;
     var step = 1;
     var direction = [step, 0];
@@ -74,4 +74,38 @@ function moveKubiki() {
             direction = [0, 0];
     });
 }
-moveKubiki();
+// moveKubikiThree()
+function moveKubikiArray() {
+    var size = 50;
+    var step = 1;
+    var direction = [step, 0];
+    var positionS = [
+        [100, 100],
+        [200, 200],
+    ];
+    setInterval(function () {
+        positionS.forEach(function (position) {
+            ctx.fillStyle = "white";
+            ctx === null || ctx === void 0 ? void 0 : ctx.fillRect(position[0], position[1], size, size);
+            position[0] = position[0] + direction[0];
+            position[1] = position[1] + direction[1];
+            ctx.fillStyle = "black";
+            ctx === null || ctx === void 0 ? void 0 : ctx.fillRect(position[0], position[1], size, size);
+        });
+    }, 10);
+    addEventListener("keydown", function (event) {
+        if (event.key == "w")
+            direction = [0, -step];
+        if (event.key == "s")
+            direction = [0, step];
+        if (event.key == "a")
+            direction = [-step, 0];
+        if (event.key == "d")
+            direction = [step, 0];
+        if (event.key == " ")
+            direction = [0, 0];
+        if (event.key == "Enter")
+            positionS.push([0, 0]);
+    });
+}
+moveKubikiArray();
