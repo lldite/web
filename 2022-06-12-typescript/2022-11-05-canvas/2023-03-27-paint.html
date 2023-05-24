@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+    .tools {
+      position: fixed;
+      display: flex;
+      flex-wrap: wrap;
+      left: 30px;
+      bottom: 30px;
+      width: 150px;
+      height: 100px;
+      background-color: white;
+    }
+    .tools div {
+      width: 50px;
+      height: 50px;
+    }
+    .tools .red {
+      background-color: red;
+    }
+    .tools .yellow {
+      background-color: yellow;
+    }
+    .tools .green {
+      background-color: green;
+    }
+    .tools .blueish {
+      background-color: #03a5fc;
+    }
+
+    .tools .blue {
+      background-color: #3903fc;
+    }
+    .tools .purple {
+      background-color: #fc03f8;
+    }
+  </style>
+  <body>
+    <canvas></canvas>
+    <div class="tools">
+      <div class="red" data-color="red"></div>
+      <div class="yellow" data-color="yellow"></div>
+      <div class="green" data-color="green"></div>
+      <div class="blueish" data-color="#03a5fc"></div>
+      <div class="blue" data-color="#3903fc"></div>
+      <div class="purple" data-color="#fc03f8"></div>
+    </div>
+    <script src="./2023-03-27-paint.js"></script>
+  </body>
+</html>
