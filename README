@@ -1,44 +1,44 @@
 // 2022-05-28-react:
-//     npm start
+// npm start
 
 // 2022-06-12-typescript:
-//     npx ts-node fails.ts # izpildīt
-//     vai
-//     npx ts-node -i # interaktīvais
+// npx ts-node fails.ts # izpildīt
+// vai
+// npx ts-node -i # interaktīvais
 
 // 2022-06-12-typescript/2022-11-05-canvas:
-//     npx tsc -w *ts # -w gaida izmaiņas un pārkompilē
-//     # tsc = TypeScript Compilator
+// npx tsc -w \*ts # -w gaida izmaiņas un pārkompilē
+// # tsc = TypeScript Compilator
 
 // npx tsc nosaukums.ts # uztaisa nosaukums.js
 
--------------
+---
 
 1. nodzēs visus liekos komentārus
 
 2. saīsini kubikInKubik
 
 3. uztaisi, ka gradient sākas no sarkanā (rgb: 255, 0, 0) un beidzas ar oranžo (rgb: 255, 255, 0)
-(un izdomā kā tie procenti tajā gradientā strādā)
+   (un izdomā kā tie procenti tajā gradientā strādā)
 
 4.1. uzzimē sešus kubikus vienu otram blakus
 4.2. uzzīmē sešus kubikus, katru savā varavīksnes krāsā (izmanto fillStyle = 'hsl(...)')
 
 5. uzzīmē rūtes ar gradientu, kur kubiku krāsa lieto HSL tā lai var redzēt varavīksni: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl
-fillStyle = 'hsl(...)'
-šis piņķerīgi — ja sanāk, sanāk
+   fillStyle = 'hsl(...)'
+   šis piņķerīgi — ja sanāk, sanāk
 
 6. uzzīmē aplīšus vairākus pēc dokumentācijas https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc
 
 7. lieto šo piemēru lai zīmētu klucīšus, kuri bīdās
-// uztaisi, ka zīmē klucīšus daudz, kuri iet pa diagonāli un nepārklājas (vai pārklājas)
+   // uztaisi, ka zīmē klucīšus daudz, kuri iet pa diagonāli un nepārklājas (vai pārklājas)
 
 ~ tas 5., 6., 7. ir jaunas tehnikas
 ~ 1, 2., 3., 4. nav principā jaunas tehnikas
 ~ tu vari setInterval atrast arī dokumentāciju un arī izmēģināt šo:
-    setInterval(() => {
-    console.log('again!')
-    }, 1000)
+setInterval(() => {
+console.log('again!')
+}, 1000)
 
 ~ tikai nesabēdājies, ja viss dirsā
 ~ be vigilant
