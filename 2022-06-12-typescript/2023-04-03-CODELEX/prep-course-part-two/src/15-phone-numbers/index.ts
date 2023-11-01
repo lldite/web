@@ -43,7 +43,6 @@ class PhoneNumber {
     let clean = this.input.replace(/[^0-9]+/g, "")
     //let clean = this.input.replace(/\D/g, "")
 
-    console.log(clean)
     if (
       clean.length == 10 &&
       clean[0].match(/[2-9]/) &&

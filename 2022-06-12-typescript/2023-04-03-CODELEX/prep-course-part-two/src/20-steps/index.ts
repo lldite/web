@@ -19,6 +19,15 @@
  *            '####'
  */
 
-function steps(n: number) {}
+function steps(n: number) {
+  for (let i = 1; i <= n; i++) {
+    console.log(
+      Array(i).fill("#").join("") +
+        Array(n - i)
+          .fill(" ")
+          .join("")
+    )
+  }
+}
 
-export { steps };
+export { steps }

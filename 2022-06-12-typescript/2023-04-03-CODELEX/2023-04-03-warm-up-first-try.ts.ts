@@ -363,7 +363,7 @@ function addfee(price: number, fee: number): number {
 //const priceInBRL = addfee(convertToBRL(price, 6.3), 0.01)
 function foreignTrans(price: number, excRate: number): number {
   if (excRate == 1) {
-    return price * excRate
+    return price
   } else {
     return price * excRate + (price * excRate) / 100
   }

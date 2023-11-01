@@ -22,11 +22,12 @@ function secondLargest(array: number[]): number {
   return 0
 
   //return array[sorted.length - 2]
-  //   return unique[unique.length - 2]
+
   //   let unique = []
   //   for (let i = 0; i <= sorted.length - 1; i++) {
   //     if (sorted[i] !== sorted[i + 1]) unique.push(sorted[i])
   //   }
+  //   return unique[unique.length - 2]
 }
 
 export { secondLargest }

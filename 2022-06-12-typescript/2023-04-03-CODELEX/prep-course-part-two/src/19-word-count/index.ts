@@ -10,15 +10,10 @@
  */
 
 class Words {
-  // words: string
-  // constructor(words: string) {
-  //   this.words = words
-  // }
-
   count(words: string) {
     console.log("string", words)
     let arraySorted = words
-      .split(" ")
+      .split(/[ \t\n]/)
       .map((str) => str.trim().toLowerCase())
       .sort()
     let arrayUnique = []
@@ -39,19 +34,19 @@ class Words {
     }
     console.log("big", bigArray)
 
-    let wordCount: Array<any> = []
+    let wordCount: Array<[string, number]> = []
     for (let i = 0; i <= bigArray.length - 1; i++) {
-      if (bigArray[i][0] !== " ")
-        wordCount.push(bigArray[i][0] + ":", bigArray[i].length)
+      if (bigArray[i][0] !== "")
+        wordCount.push([bigArray[i][0], bigArray[i].length])
     }
     console.log("Count", wordCount)
-    return wordCount
+    return Object.fromEntries(wordCount) // !!
   }
 }
 
 export { Words }
 
 // objects
-let o: { age: number; adult: Boolean } = { age: 20, adult: false } // make
-console.log(o.age, o["age"], o.adult, o["adult"]) // izkasīšana dažādos veidos
-let o2: { age: number; adult: Boolean } = { age: o.age, adult: o.adult } // remake
+// let o: { age: number; adult: Boolean } = { age: 20, adult: false } // make
+// console.log(o.age, o["age"], o.adult, o["adult"]) // izkasīšana dažādos veidos
+// let o2: { age: number; adult: Boolean } = { age: o.age, adult: o.adult } // remake

@@ -10,7 +10,7 @@
  * reverse('Greetings!') === '!sgniteerG'
  */
 
-function reverse2(str: string): string {
+function reverse(str: string): string {
   let reverse: string = ""
   for (let i = str.length - 1; i >= 0; i--) {
     reverse = reverse + str[i]
@@ -19,7 +19,7 @@ function reverse2(str: string): string {
   return reverse
 }
 
-function reverse(str: string): string {
+function reverse2(str: string): string {
   let reverse = []
   for (let i = str.length - 1; i >= 0; i--) {
     reverse.push(str[i])

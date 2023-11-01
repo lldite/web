@@ -13,7 +13,6 @@
 
 function capitalize(str: string): string {
   let arr = str.split(" ")
-  console.log(arr)
   return arr
     .map((string) => string[0].toUpperCase() + string.slice(1, string.length))
     .join(" ")

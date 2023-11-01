@@ -13,7 +13,6 @@
 
 function validate(n: number): Boolean {
   let array: Array<string> = n.toString().split("")
-
   let powArr = array.map((s) => Math.pow(parseInt(s), array.length))
   return powArr.reduce((a, b) => a + b) == n ? true : false
 }

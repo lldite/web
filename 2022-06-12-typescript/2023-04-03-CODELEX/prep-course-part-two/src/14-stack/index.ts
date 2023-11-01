@@ -31,20 +31,3 @@ class Stack {
 }
 
 export { Stack }
-
-// class Stack {
-//   stack: Array<number> = []
-//   push(n: number) {
-//     this.stack.push(n)
-//   }
-
-//   pop() {
-//     return this.stack.pop()
-//   }
-
-//   peek() {
-//     return this.stack[this.stack.length - 1]
-//   }
-// }
-
-// export { Stack }

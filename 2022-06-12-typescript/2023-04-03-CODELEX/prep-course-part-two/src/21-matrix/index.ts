@@ -35,15 +35,21 @@
  */
 
 class Matrix {
-  constructor(private matrix: string) {}
+  private m: string
+  constructor(private matrix: string) {
+    this.m = matrix
+  }
 
   get rows() {
-    return [];
+    let array = this.m.split("\n")
+    console.log("array", array)
+    return array.map((row) => row.split(" ").map((string) => parseInt(string)))
   }
 
   get columns() {
-    return [];
+    let array = this.rows
+    return array[0].map((_, colIndex) => array.map((row) => row[colIndex])) // Transposing!
   }
 }
 
-export { Matrix };
+export { Matrix }

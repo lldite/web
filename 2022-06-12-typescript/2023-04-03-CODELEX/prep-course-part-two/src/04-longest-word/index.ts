@@ -16,7 +16,6 @@ function longestWord(sen: string): string {
   let arr: Array<string> = sen
     .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
     .split(" ")
-  console.log(arr)
   return arr.reduce((item, next) => (item.length >= next.length ? item : next))
 }
 
